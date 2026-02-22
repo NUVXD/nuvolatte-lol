@@ -1,0 +1,83 @@
+@font-face {
+    font-family: AdvoCut;
+    src: url(assets/fonts/AdvoCut.ttf);
+}
+
+cursor {
+    cursor: url("");
+}
+
+body {
+    background-color: black;
+    background-image: url("/assets/images/tiles/grn013.gif");
+    background-repeat: repeat;
+    color: rgb(141, 255, 12);
+    margin: 0px;
+    position: relative;
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    background: rgb(18, 104, 126);
+    background-image: url("");
+    border-style: dashed;
+    border-color: wheat;
+    border-width: 2px;
+    border-radius: 5px;
+    height: 22px;
+    padding: 0px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.header-img {
+    height: 22px;
+    width: 100%;
+    background-image: url("");
+    background-position: center;
+    margin-top: 0px;
+    margin-bottom: -20px;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px;
+    position: relative;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    margin-top: -2px;
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 0px 95px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: rgb(20, 240, 12);
+    text-transform: uppercase;
+    font-family: AdvoCut;
+    font-size: 20px;
+    position: relative;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: red;
+}

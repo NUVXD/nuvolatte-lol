@@ -1,10 +1,10 @@
 @font-face {
     font-family: AdvoCut;
-    src: url(assets/fonts/AdvoCut.ttf);
+    src: url("/assets/fonts/AdvoCut.ttf");
 }
 
 * {
-    cursor: url("");
+    cursor: auto;
 }
 
 body {
@@ -25,7 +25,7 @@ body::-webkit-scrollbar {
 
 header {
     background: rgb(18, 104, 126);
-    background-image: url("");
+    background-image: url("/assets/images/static/house-nobg.png");
     border-style: dashed;
     border-color: wheat;
     border-width: 2px;
@@ -41,7 +41,7 @@ header {
 .header-img {
     height: 22px;
     width: 100%;
-    background-image: url("");
+    background-image: url("/assets/images/static/house-nobg.png");
     background-position: center;
     margin-top: 0px;
     margin-bottom: -20px;

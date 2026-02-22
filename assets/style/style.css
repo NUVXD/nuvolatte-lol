@@ -3,7 +3,7 @@
     src: url(assets/fonts/AdvoCut.ttf);
 }
 
-cursor {
+* {
     cursor: url("");
 }
 

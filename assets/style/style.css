@@ -24,7 +24,7 @@ img {
 
 body {
     background-color: black;
-    background-image: url("/assets/images/tiles/brains1.gif");
+    background-image: url("/assets/images/tiles/brains2.gif");
     background-repeat: repeat;
     margin: 0px;
     position: relative;
@@ -52,9 +52,14 @@ body::-webkit-scrollbar {
 
 header {
     background: rgb(18, 104, 126);
-    background-image: url("/assets/images/tiles/balls.gif");
+    background-image: url("/assets/images/tiles/greenfabric.jpg");
+    background-size: 100px;
     background-repeat: repeat;
-    border-style: outset;
+    box-shadow:
+        inset -1px -1px #0a0a0a,
+        inset 1px 1px #dfdfdf,
+        inset -2px -2px #808080,
+        inset 2px 2px #ffffff;
     border-color: rgb(255, 174, 0);
     border-width: 2px;
     height: 30px;
@@ -90,16 +95,17 @@ header {
 .navbar a {
     display: inline-block;
     text-decoration: none;
-    color: rgb(255, 174, 0);
+    color: rgb(255, 246, 226);
     text-transform: uppercase;
     font-family: "W95FA";
     font-size: 20px;
+    font-weight: bold;
     position: relative;
 }
 
 .navbar a:hover {
     animation: jiggle-big 0.3s infinite ease;
-    color: rgb(255, 183, 0);
+    color: rgb(255, 230, 0);
 }
 
 @keyframes jiggle-big {
@@ -205,7 +211,7 @@ header {
     text-align: center;
     font-family: "ms95-sans-serif";
     font-size: 15px;
-    color: rgb(255, 183, 0);
+    color: rgb(255, 255, 255);
 }
 
 /* Windows and stuff, css taken and modified from https://github.com/jdan/98.css */
@@ -236,6 +242,14 @@ header {
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(90deg, #000080, #1084d0);
+}
+
+.title-bar img {
+    margin-top: -4px;
+    margin-right: 2px;
+    height: 16px;
+    width: 16px;
+    transform: translateY(3px);
 }
 
 .title-bar-text {
@@ -345,15 +359,20 @@ header {
 }
 
 footer {
-    color: #dfdfdf;
+    color: transparent;
     user-select: none;
-    font-family: "ms95-sans-serif";
     padding: 10px;
     background: none;
     bottom: 0;
     justify-content: center;
+    background: repeating-linear-gradient(90deg, #FF4136, #FF851B, #FFDC00, #2ECC40, #0074D9, #B10DC9);
+    background-size: 67px;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 footer p {
     text-align: center;
+    font-family: "ms95-sans-serif";
+    font-weight: bolder;
 }

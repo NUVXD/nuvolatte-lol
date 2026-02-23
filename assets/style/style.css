@@ -45,10 +45,12 @@ body::-webkit-scrollbar {
     height: 100px;
     width: 100%;
 
+    /*
     background-image: url("/assets/images/static/header.gif");
     background-repeat: no-repeat;
     background-position: center;
-
+    */
+    
     margin-top: 0px;
     margin-bottom: 0px;
     position: relative;

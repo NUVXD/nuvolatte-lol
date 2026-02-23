@@ -42,7 +42,7 @@ header {
     background-image: url("/assets/images/tiles/balls.gif");
     background-repeat: repeat;
 
-    border-style: solid;
+    border-style: outset;
     border-color: rgb(255, 174, 0);
     border-width: 2px;
 
@@ -135,7 +135,7 @@ header {
     margin: 5px 0px;
     font-family: W95FA;
 
-    border-style: solid;
+    border-style: outset;
     border-color: rgb(255, 106, 20);
     border-width: 2px;
 }
@@ -161,9 +161,9 @@ header {
     margin: 10px 0px;
     font-family: W95FA; /*"Comic Sans MS" "AdvoCut"*/
 
-    border-style: solid;
+    border-style: outset;
     border-color: rgb(44, 44, 43);
-    border-width: 2px;
+    border-width: 3px;
 }
 .decorative-frame-buttons {
     margin: -10px;
@@ -179,7 +179,7 @@ header {
     margin-top: 3px;
     color: rgb(44, 44, 43);
     background-color: rgb(179, 179, 179);
-    border-style: solid;
+    border-style: outset;
     border-color: rgb(44, 44, 43);
     border-width: 1px;
     border-radius: 2px;
@@ -208,13 +208,29 @@ header {
     width: 100%;
     position: relative;
     
-    border-style: solid;
+    border-style: outset;
     border-color: rgb(44, 44, 43);
     border-width: 2px;
 
     padding: 8px 0px;
     margin: 15px 0px;
     margin-bottom: -2px;
+}
+
+.blinkies {
+    user-select: none;
+    display: flex;
+    width: 100%;
+    position: relative;
+    display: block;
+    padding-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blinkies img {
+    width: 150px;
+    height: 20px;
 }
 
 footer {

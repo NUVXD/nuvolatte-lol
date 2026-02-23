@@ -26,15 +26,11 @@ body {
     background-color: black;
     background-image: url("/assets/images/tiles/brains1.gif");
     background-repeat: repeat;
-
     margin: 0px;
     position: relative;
-
     height: auto;
     width: 100%;
     overflow-x: hidden;
-
-    -webkit-font-smoothing: none;
 }
 
 body::-webkit-scrollbar {
@@ -44,13 +40,11 @@ body::-webkit-scrollbar {
 .banner {
     height: 100px;
     width: 100%;
-
     /*
     background-image: url("/assets/images/static/header.gif");
     background-repeat: no-repeat;
     background-position: center;
     */
-    
     margin-top: 0px;
     margin-bottom: 0px;
     position: relative;
@@ -60,14 +54,11 @@ header {
     background: rgb(18, 104, 126);
     background-image: url("/assets/images/tiles/balls.gif");
     background-repeat: repeat;
-
     border-style: outset;
     border-color: rgb(255, 174, 0);
     border-width: 2px;
-
     height: 30px;
     width: 1200px;
-
     padding: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -144,6 +135,7 @@ header {
     position: relative;
 }
 
+/*
 .container-background {
     width: 1200px;
     height: 130%;
@@ -163,6 +155,7 @@ header {
     border: 15px solid transparent;
     border-image: url("/assets/images/tiles/wooden.gif") 15 / 10px repeat;
 }
+*/
 
 .center {
     margin-left: 250px;
@@ -170,7 +163,8 @@ header {
 
 }
 
-.left {
+.left,
+.right {
     width: 200px;
     flex-wrap: wrap;
     display: inline;
@@ -178,74 +172,20 @@ header {
 }
 
 .right {
-    width: 200px;
-    flex-wrap: wrap;
-    display: inline;
-    position: absolute;
     margin-left: 990px;
 }
 
-.sidebar {
-    float: left;
+.panel {
     height: auto;
-    position: relative;
-    width: 210px;
-    background-color: rgb(36, 13, 82);
-    padding: 8px;
-    margin: 5px 0px;
-    font-family: "W95FA";
-
-    border-style: outset;
-    border-color: rgb(255, 106, 20);
-    border-width: 2px;
-}
-
-.sidebar h1 {
-    user-select: none;
-    text-transform: capitalize;
-    margin: 0px;
-    margin-top: 0px;
-    text-align: center;
-    line-height: 30px;
-    font-size: 25px;
-    font-weight: lighter;
-    color: rgb(255, 255, 255);
-    background-color: rgba(207, 183, 255, 0.349);
-}
-
-.panel-frame {
-    height: auto;
-    position: relative;
     width: 100%;
-    background-color: rgb(179, 179, 179);
-    padding: 8px;
-    margin: 5px 0px;
-    font-family: "W95FA";
-
-    border-style: outset;
-    border-color: rgb(44, 44, 43);
-    border-width: 3px;
-}
-
-.decorative-frame-buttons {
-    margin: -10px;
-    padding-left: 652px;
-    display: flex;
-    position: absolute;
-}
-
-.decorative-frame-buttons li {
-    user-select: none;
-    font-weight: bold;
-    display: inline;
-    padding: 0px 4px;
-    margin-top: 3px;
-    color: rgb(44, 44, 43);
-    background-color: rgb(179, 179, 179);
-    border-style: outset;
-    border-color: rgb(44, 44, 43);
-    border-width: 1px;
-    border-radius: 2px;
+    position: relative;
+    padding-bottom: 5px;
+    margin: 4px 0px 2px 0px;
+    box-shadow:
+        inset -1px -1px #ffffff,
+        inset 1px 1px #0a0a0a,
+        inset -2px -2px #dfdfdf,
+        inset 2px 2px #808080;
 }
 
 .panel h1 {
@@ -261,26 +201,11 @@ header {
     background-color: rgba(207, 183, 255, 0.349);
 }
 
-.sidebar p,
 .panel p {
     text-align: center;
     font-family: "ms95-sans-serif";
     font-size: 15px;
     color: rgb(255, 183, 0);
-}
-
-.panel {
-    height: auto;
-    width: 100%;
-    position: relative;
-    padding-bottom: 5px;
-    margin: 4px 0px 2px 0px;
-
-    box-shadow:
-        inset -1px -1px #ffffff,
-        inset 1px 1px #0a0a0a,
-        inset -2px -2px #dfdfdf,
-        inset 2px 2px #808080;
 }
 
 /* Windows and stuff, css taken and modified from https://github.com/jdan/98.css */
@@ -289,7 +214,6 @@ header {
     width: 705px;
     padding: 3px;
     margin: 5px;
-
     box-shadow:
         inset -1px -1px #0a0a0a,
         inset 1px 1px #dfdfdf,
@@ -300,14 +224,17 @@ header {
     font-size: 15px;
 }
 
+.window.side {
+    width: 220px;
+    margin: 4px;
+}
+
 .title-bar {
     user-select: none;
-
-    padding: 3px 2px 3px 3px;
+    padding: 0px 2px 3px 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: linear-gradient(90deg, #000080, #1084d0);
 }
 
@@ -327,7 +254,6 @@ header {
     display: block;
     min-width: 16px;
     min-height: 14px;
-
     background-color: silver;
     box-sizing: border-box;
     border: none;
@@ -369,7 +295,6 @@ header {
 
 .blinkies {
     user-select: none;
-    display: flex;
     width: 100%;
     position: relative;
     display: block;
@@ -381,6 +306,10 @@ header {
 .blinkies img {
     width: 150px;
     height: 20px;
+}
+
+.buttons table {
+    margin-left: -20px;
 }
 
 .marquee {
@@ -421,7 +350,7 @@ footer {
     font-family: "ms95-sans-serif";
     padding: 10px;
     background: none;
-    bottom: 0px;
+    bottom: 0;
     justify-content: center;
 }
 

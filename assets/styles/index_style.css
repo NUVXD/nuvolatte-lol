@@ -16,6 +16,7 @@
 
 * {
     cursor: url("/assets/images/gifs/cursor.gif"), default;
+    -webkit-font-smoothing: none;
 }
 
 img {
@@ -185,7 +186,6 @@ header {
     height: auto;
     width: 100%;
     position: relative;
-    padding-bottom: 5px;
     margin: 4px 0px 2px 0px;
     box-shadow:
         inset -1px -1px #ffffff,
@@ -198,9 +198,9 @@ header {
     user-select: none;
     text-transform: capitalize;
     margin: 0px;
-    padding-top: 1px;
+    padding-top: 2px;
     text-align: center;
-    line-height: 30px;
+    line-height: 25px;
     font-size: 25px;
     font-weight: lighter;
     color: rgb(255, 255, 255);
@@ -208,6 +208,8 @@ header {
 }
 
 .panel p {
+    margin: 0;
+    padding: 5px 0 8px 0;
     text-align: center;
     font-family: "ms95-sans-serif";
     font-size: 15px;
@@ -305,7 +307,86 @@ header {
     background-position: top 2px left 3px;
 }
 
-/* */
+.HelpButton {
+    background-image: url("/assets/images/static/help.svg");
+    background-repeat: no-repeat;
+    background-position: top 2px left 4px;
+}
+
+.field-control {
+    user-select: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: "ms95-sans-serif";
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 30%;
+    background: transparent;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 21px;
+    width: 11px;
+    transform: translateY(-8px);
+    box-shadow: none;
+    border: none;
+    background-image: url("/assets/images/static/indicator-horizontal.svg");
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    box-sizing: border-box;
+    background: black;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    box-shadow: 1px 0 0 white, 1px 1px 0 white, 0 1px 0 white, -1px 0 0 darkgrey,
+        -1px -1px 0 darkgrey, 0 -1px 0 darkgrey, -1px 1px 0 white, 1px -1px darkgrey;
+}
+
+select {
+    user-select: none;
+    padding: 3px 4px;
+    border: none;
+    height: 21px;
+    box-shadow: inset -1px -1px #ffffff;
+    background-color: #ffffff;
+    padding-right: 32px;
+    background-image: url("/assets/images/static/button-down.svg");
+    background-position: top 2px right 2px;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select:focus {
+    outline: none;
+    color: #ffffff;
+    background-color: #000080;
+}
+
+select:focus option {
+    color: #000;
+    background-color: #fff;
+}
+
+select:active {
+    background-image: url("/assets/images/static/button-down-active.svg");
+}
+
+/* ----------------------------------------------------------------------------- */
 
 .blinkies {
     user-select: none;
@@ -356,6 +437,49 @@ header {
     to {
         transform: translateX(-50%);
     }
+}
+
+:root {
+    --meowsic-height: 240px;
+
+    --piano-height: 50%;
+    --piano-width: 65%;
+
+    /* margins */
+    --piano-tb-margin: calc((100% - var(--piano-height)) / 6);
+    --piano-lr-margin: calc((100% - var(--piano-width)) / 2);
+
+    /* mask math (simplified but identical) */
+    --piano-mask-width-diff: calc(200% - var(--piano-width));
+    --piano-mask-width: calc(var(--piano-mask-width-diff) + (var(--piano-mask-width-diff) - var(--piano-width)) / 4);
+}
+
+#meowsic {
+    margin: 0 -1%;
+    background-image: url("/virtual-piano/meowsic.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* intentional stretch kept */
+    width: 102%;
+    height: var(--meowsic-height);
+}
+
+#piano {
+    user-select: none;
+
+    height: var(--piano-height);
+    width: var(--piano-width);
+    margin: var(--piano-tb-margin) var(--piano-lr-margin);
+
+    mask-image: url("/virtual-piano/meowsic-smilemask.gif");
+    mask-repeat: no-repeat;
+    mask-size: var(--piano-mask-width) calc(200% + 15px);
+    mask-position: center;
+
+    -webkit-mask-image: url("/virtual-piano/meowsic-smilemask.gif");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: var(--piano-mask-width) calc(200% + 15px);
+    -webkit-mask-position: center;
 }
 
 #foot {

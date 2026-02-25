@@ -2,14 +2,37 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="piano_style.css">
+    <link rel="stylesheet" href="/assets/styles/piano_style.css">
     <script src="piano.js"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            bindKeysToFunction(function (sender, noteLabel, action) {
-                console.log("key " + action + " is " + noteLabel);
+        //everything that needs to wait for DOM being already loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            const volumeSlider = window.parent.document.getElementById("piano-volume-slider");
+            const transposer = window.parent.document.getElementById("piano-transposer");
+
+            bindKeysToFunction(async function (el, noteLabel, state, keyIndex) {
+                await ensureAudio();
+                if (state === 'down') {
+                    synthNoteOn(keyIndex);
+                    console.log("playing note: " + noteLabel + " | index: " + keyIndex);
+                } else if (state === 'up') {
+                    synthNoteOff(keyIndex);
+                }
             });
+
+            volumeSlider.addEventListener("input", (e) => {
+                const val = parseFloat(e.target.value);
+                if (mainGain) {
+                    mainGain.gain.value = val;
+                }
+            });
+
+            if (transposer) {
+                transposer.addEventListener("input", (e) => {
+                    transposeSemitones = parseInt(e.target.value, 10);
+                });
+            }
+
         });
     </script>
 </head>
@@ -20,247 +43,247 @@
             <ul class="DA-PianoKeyboard">
                 <li class="whiteKey" data-key="1">
                     <div class="note-label">C2</div>
-                    <div class="key-label">[1]</div>
+                    <div class="key-label">1</div>
                 </li>
                 <li class="blackKey" data-key="!">
                     <div class="note-label">C#2</div>
-                    <div class="key-label">[!]</div>
+                    <div class="key-label">!</div>
                 </li>
                 <li class="whiteKey" data-key="2">
                     <div class="note-label">D2</div>
-                    <div class="key-label">[2]</div>
+                    <div class="key-label">2</div>
                 </li>
                 <li class="blackKey" data-key="@">
                     <div class="note-label">D#2</div>
-                    <div class="key-label">[@]</div>
+                    <div class="key-label">@</div>
                 </li>
                 <li class="whiteKey" data-key="3">
                     <div class="note-label">E2</div>
-                    <div class="key-label">[3]</div>
+                    <div class="key-label">3</div>
                 </li>
                 <li class="whiteKey" data-key="4">
                     <div class="note-label">F2</div>
-                    <div class="key-label">[4]</div>
+                    <div class="key-label">4</div>
                 </li>
                 <li class="blackKey" data-key="$">
                     <div class="note-label">F#2</div>
-                    <div class="key-label">[$]</div>
+                    <div class="key-label">$</div>
                 </li>
                 <li class="whiteKey" data-key="5">
                     <div class="note-label">G2</div>
-                    <div class="key-label">[5]</div>
+                    <div class="key-label">5</div>
                 </li>
                 <li class="blackKey" data-key="%">
                     <div class="note-label">G#2</div>
-                    <div class="key-label">[%]</div>
+                    <div class="key-label">%</div>
                 </li>
                 <li class="whiteKey" data-key="6">
                     <div class="note-label">A2</div>
-                    <div class="key-label">[6]</div>
+                    <div class="key-label">6</div>
                 </li>
                 <li class="blackKey" data-key="^">
                     <div class="note-label">A#2</div>
-                    <div class="key-label">[^]</div>
+                    <div class="key-label">^</div>
                 </li>
                 <li class="whiteKey" data-key="7">
                     <div class="note-label">B2</div>
-                    <div class="key-label">[7]</div>
+                    <div class="key-label">7</div>
                 </li>
                 <li class="whiteKey" data-key="8">
                     <div class="note-label">C3</div>
-                    <div class="key-label">[8]</div>
+                    <div class="key-label">8</div>
                 </li>
                 <li class="blackKey" data-key="*">
                     <div class="note-label">C#3</div>
-                    <div class="key-label">[*]</div>
+                    <div class="key-label">*</div>
                 </li>
                 <li class="whiteKey" data-key="9">
                     <div class="note-label">D3</div>
-                    <div class="key-label">[9]</div>
+                    <div class="key-label">9</div>
                 </li>
                 <li class="blackKey" data-key="(">
                     <div class="note-label">D#3</div>
-                    <div class="key-label">[(]</div>
+                    <div class="key-label">(</div>
                 </li>
                 <li class="whiteKey" data-key="0">
                     <div class="note-label">E3</div>
-                    <div class="key-label">[0]</div>
+                    <div class="key-label">0</div>
                 </li>
                 <li class="whiteKey" data-key="q">
                     <div class="note-label">F3</div>
-                    <div class="key-label">[q]</div>
+                    <div class="key-label">q</div>
                 </li>
                 <li class="blackKey" data-key="Q">
                     <div class="note-label">F#3</div>
-                    <div class="key-label">[Q]</div>
+                    <div class="key-label">Q</div>
                 </li>
                 <li class="whiteKey" data-key="w">
                     <div class="note-label">G3</div>
-                    <div class="key-label">[w]</div>
+                    <div class="key-label">w</div>
                 </li>
                 <li class="blackKey" data-key="W">
                     <div class="note-label">G#3</div>
-                    <div class="key-label">[W]</div>
+                    <div class="key-label">W</div>
                 </li>
                 <li class="whiteKey" data-key="e">
                     <div class="note-label">A3</div>
-                    <div class="key-label">[e]</div>
+                    <div class="key-label">e</div>
                 </li>
                 <li class="blackKey" data-key="E">
                     <div class="note-label">A#3</div>
-                    <div class="key-label">[E]</div>
+                    <div class="key-label">E</div>
                 </li>
                 <li class="whiteKey" data-key="r">
                     <div class="note-label">B3</div>
-                    <div class="key-label">[r]</div>
+                    <div class="key-label">r</div>
                 </li>
                 <li class="whiteKey" data-key="t">
                     <div class="note-label">C4</div>
-                    <div class="key-label">[t]</div>
+                    <div class="key-label">t</div>
                 </li>
                 <li class="blackKey" data-key="R">
                     <div class="note-label">C#4</div>
-                    <div class="key-label">[R]</div>
+                    <div class="key-label">R</div>
                 </li>
                 <li class="whiteKey" data-key="y">
                     <div class="note-label">D4</div>
-                    <div class="key-label">[y]</div>
+                    <div class="key-label">y</div>
                 </li>
                 <li class="blackKey" data-key="T">
                     <div class="note-label">D#4</div>
-                    <div class="key-label">[T]</div>
+                    <div class="key-label">T</div>
                 </li>
                 <li class="whiteKey" data-key="u">
                     <div class="note-label">E4</div>
-                    <div class="key-label">[u]</div>
+                    <div class="key-label">u</div>
                 </li>
                 <li class="whiteKey" data-key="i">
                     <div class="note-label">F4</div>
-                    <div class="key-label">[i]</div>
+                    <div class="key-label">i</div>
                 </li>
                 <li class="blackKey" data-key="Y">
                     <div class="note-label">F#4</div>
-                    <div class="key-label">[Y]</div>
+                    <div class="key-label">Y</div>
                 </li>
                 <li class="whiteKey" data-key="o">
                     <div class="note-label">G4</div>
-                    <div class="key-label">[o]</div>
+                    <div class="key-label">o</div>
                 </li>
                 <li class="blackKey" data-key="I">
                     <div class="note-label">G#4</div>
-                    <div class="key-label">[I]</div>
+                    <div class="key-label">I</div>
                 </li>
                 <li class="whiteKey" data-key="p">
                     <div class="note-label">A4</div>
-                    <div class="key-label">[p]</div>
+                    <div class="key-label">p</div>
                 </li>
                 <li class="blackKey" data-key="O">
                     <div class="note-label">A#4</div>
-                    <div class="key-label">[O]</div>
+                    <div class="key-label">O</div>
                 </li>
                 <li class="whiteKey" data-key="a">
                     <div class="note-label">B4</div>
-                    <div class="key-label">[a]</div>
+                    <div class="key-label">a</div>
                 </li>
                 <li class="whiteKey" data-key="s">
                     <div class="note-label">C5</div>
-                    <div class="key-label">[s]</div>
+                    <div class="key-label">s</div>
                 </li>
                 <li class="blackKey" data-key="P">
                     <div class="note-label">C#5</div>
-                    <div class="key-label">[P]</div>
+                    <div class="key-label">P</div>
                 </li>
                 <li class="whiteKey" data-key="d">
                     <div class="note-label">D5</div>
-                    <div class="key-label">[d]</div>
+                    <div class="key-label">d</div>
                 </li>
                 <li class="blackKey" data-key="S">
                     <div class="note-label">D#5</div>
-                    <div class="key-label">[S]</div>
+                    <div class="key-label">S</div>
                 </li>
                 <li class="whiteKey" data-key="f">
                     <div class="note-label">E5</div>
-                    <div class="key-label">[f]</div>
+                    <div class="key-label">f</div>
                 </li>
                 <li class="whiteKey" data-key="g">
                     <div class="note-label">F5</div>
-                    <div class="key-label">[g]</div>
+                    <div class="key-label">g</div>
                 </li>
                 <li class="blackKey" data-key="D">
                     <div class="note-label">F#5</div>
-                    <div class="key-label">[D]</div>
+                    <div class="key-label">D</div>
                 </li>
                 <li class="whiteKey" data-key="h">
                     <div class="note-label">G5</div>
-                    <div class="key-label">[h]</div>
+                    <div class="key-label">h</div>
                 </li>
                 <li class="blackKey" data-key="G">
                     <div class="note-label">G#5</div>
-                    <div class="key-label">[G]</div>
+                    <div class="key-label">G</div>
                 </li>
                 <li class="whiteKey" data-key="j">
                     <div class="note-label">A5</div>
-                    <div class="key-label">[j]</div>
+                    <div class="key-label">j</div>
                 </li>
                 <li class="blackKey" data-key="H">
                     <div class="note-label">A#5</div>
-                    <div class="key-label">[H]</div>
+                    <div class="key-label">H</div>
                 </li>
                 <li class="whiteKey" data-key="k">
                     <div class="note-label">B5</div>
-                    <div class="key-label">[k]</div>
+                    <div class="key-label">k</div>
                 </li>
                 <li class="whiteKey" data-key="l">
                     <div class="note-label">C6</div>
-                    <div class="key-label">[l]</div>
+                    <div class="key-label">l</div>
                 </li>
                 <li class="blackKey" data-key="J">
                     <div class="note-label">C#6</div>
-                    <div class="key-label">[J]</div>
+                    <div class="key-label">J</div>
                 </li>
                 <li class="whiteKey" data-key="z">
                     <div class="note-label">D6</div>
-                    <div class="key-label">[z]</div>
+                    <div class="key-label">z</div>
                 </li>
                 <li class="blackKey" data-key="L">
                     <div class="note-label">D#6</div>
-                    <div class="key-label">[L]</div>
+                    <div class="key-label">L</div>
                 </li>
                 <li class="whiteKey" data-key="x">
                     <div class="note-label">E6</div>
-                    <div class="key-label">[x]</div>
+                    <div class="key-label">x</div>
                 </li>
                 <li class="whiteKey" data-key="c">
                     <div class="note-label">F6</div>
-                    <div class="key-label">[c]</div>
+                    <div class="key-label">c</div>
                 </li>
                 <li class="blackKey" data-key="Z">
                     <div class="note-label">F#6</div>
-                    <div class="key-label">[Z]</div>
+                    <div class="key-label">Z</div>
                 </li>
                 <li class="whiteKey" data-key="v">
                     <div class="note-label">G6</div>
-                    <div class="key-label">[v]</div>
+                    <div class="key-label">v</div>
                 </li>
                 <li class="blackKey" data-key="C">
                     <div class="note-label">G#6</div>
-                    <div class="key-label">[C]</div>
+                    <div class="key-label">C</div>
                 </li>
                 <li class="whiteKey" data-key="b">
                     <div class="note-label">A6</div>
-                    <div class="key-label">[b]</div>
+                    <div class="key-label">b</div>
                 </li>
                 <li class="blackKey" data-key="V">
                     <div class="note-label">A#6</div>
-                    <div class="key-label">[V]</div>
+                    <div class="key-label">V</div>
                 </li>
                 <li class="whiteKey" data-key="n">
                     <div class="note-label">B6</div>
-                    <div class="key-label">[n]</div>
+                    <div class="key-label">n</div>
                 </li>
                 <li class="whiteKey" data-key="m">
                     <div class="note-label">C7</div>
-                    <div class="key-label">[m]</div>
+                    <div class="key-label">m</div>
                 </li>
             </ul>
         </div>

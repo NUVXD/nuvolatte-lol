@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuvolatte's Corner</title>
-    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/styles/index_style.css">
     <link rel="icon" href="assets/images/gifs/mouse_quiet.gif">
 </head>
 
@@ -51,8 +51,7 @@
                 <div class="panel"
                     style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
                     <h1>Browse!</h1>
-                    <p></p>
-                    <br><br><br><br>
+                    <p>test<br>test<br>test</p>
                 </div>
             </div>
 
@@ -112,7 +111,7 @@
                 <div class="panel"
                     style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
                     <h1>test</h1>
-                    <p>test</p>
+                    <p>test<br>test<br>test</p>
                 </div>
             </div>
 
@@ -128,7 +127,7 @@
                 <div class="panel"
                     style="background-image: url(/assets/images/tiles/confetti.jpg); background-size: 30%;">
                     <h1>test</h1>
-                    <p>test</p>
+                    <p>test<br>test<br>test</p>
                 </div>
             </div>
 
@@ -174,8 +173,7 @@
                 <div class="panel"
                     style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
                     <h1>test</h1>
-                    <p>test</p>
-                    <br><br><br><br><br>
+                    <p>test<br>test<br>test</p>
                 </div>
             </div>
 
@@ -190,9 +188,10 @@
                 <img src="assets/images/blinkies/Blinkie9.gif">
             </div>
 
+            <!-- VIRTUAL PIANO WINDOW -->
             <div class="window">
                 <div class="title-bar">
-                    <div class="title-bar-text">Test.exe</div>
+                    <div class="title-bar-text"><img src="assets/images/static/piano.gif">VirtualPiano.exe</div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -200,13 +199,34 @@
                     </div>
                 </div>
                 <div class="panel"
-                    style="background-image: url(/assets/images/tiles/pattern1.gif); background-repeat: repeat;">
-                    <h1>test</h1>
-                    <iframe id="piano" src="virtual-piano/piano.html" allow="fullscreen*" height="150px" width="100%"
-                        scrolling="no" frameborder="no"></iframe>
+                    style="background-image: url(/assets/images/tiles/pattern1.gif); background-image: url(/assets/images/tiles/pattern1.gif); background-repeat: repeat;">
+                    <div id="meowsic">
+                        <iframe id="piano" src="virtual-piano/piano.html" allow="fullscreen" height="100%" width="100%"
+                            scrolling="no" frameborder="no"></iframe>
+                    </div>
+                </div>
+                <div class="field-control">
+                    <label>Volume:&ThickSpace;</label>
+                    <label>Low</label>
+                    <input id="piano-volume-slider" type="range" min="0" max="1" step="0.01" value="0.3">
+                    <label>High</label>
+                </div>
+                <div class="field-control">
+                    <label>Transpose:&ThickSpace;</label>
+                    <select id="piano-transposer">
+                        <option>+3</option>
+                        <option>+2</option>
+                        <option>+1</option>
+                        <option selected>0</option>
+                        <option>-1</option>
+                        <option>-2</option>
+                        <option>-3</option>
+                    </select>
                 </div>
             </div>
+            <!-------------------------->
 
+            <!-- STAMPS MARQUEE -->
             <div class="marquee">
                 <div class="marquee-track">
                     <img src="assets/images/stamps/underconstruction3.gif">
@@ -234,10 +254,11 @@
                     <img src="assets/images/stamps/nirvana.gif">
                 </div>
             </div>
+            <!-------------------->
 
             <div id="foot">
                 <p>
-                    By Nuvola, with hate.
+                    Scribbled by Nuvola, <br>with hate &hearts;.
                     <br>
                     <br>
                     <img src="assets/images/gifs/www.gif">

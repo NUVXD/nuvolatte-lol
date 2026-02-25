@@ -1,0 +1,150 @@
+* {
+    cursor: url("/assets/images/gifs/cursor.gif"), default;
+}
+
+#keyboardContainer {
+    user-select: none;
+    /*
+    width: 1300px;
+    */
+    margin: 0 auto;
+    padding: 0;
+    height: 140px;
+    position: relative;
+}
+
+.DA-Keyboardcontainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+ul.DA-PianoKeyboard {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-top: 4px solid #000;
+}
+
+ul.DA-PianoKeyboard li.whiteKey {
+    flex: 1 1 0;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 2px solid #000;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+ul.DA-PianoKeyboard li.whiteKey:first-child {
+    border-left: 3px solid #000;
+}
+
+ul.DA-PianoKeyboard li.whiteKey:last-child {
+    border-right: 3px solid #000;
+}
+
+li > .note-label {
+    position: absolute;
+    bottom: calc(5% + 15px);
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+li > .key-label {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+ul.DA-PianoKeyboard li.blackKey {
+    height: 55%;
+    background: #000;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    pointer-events: auto;
+}
+
+/* container-relative black key width */
+ul.DA-PianoKeyboard li.blackKey {
+    width: calc(100% / 36 * 0.65); /* 65% of one white key */
+}
+
+/* explicit left offsets (percentages of container) */
+li.blackKey[data-key="!"] { left: calc(100% / 36 * 0.66); }
+li.blackKey[data-key="@"] { left: calc(100% / 36 * 1.66); }
+li.blackKey[data-key="$"] { left: calc(100% / 36 * 3.66); }
+li.blackKey[data-key="%"] { left: calc(100% / 36 * 4.66); }
+li.blackKey[data-key="^"] { left: calc(100% / 36 * 5.66); }
+li.blackKey[data-key="*"] { left: calc(100% / 36 * 7.66); }
+li.blackKey[data-key="("] { left: calc(100% / 36 * 8.66); }
+li.blackKey[data-key="Q"] { left: calc(100% / 36 * 10.66); }
+li.blackKey[data-key="W"] { left: calc(100% / 36 * 11.66); }
+li.blackKey[data-key="E"] { left: calc(100% / 36 * 12.66); }
+li.blackKey[data-key="R"] { left: calc(100% / 36 * 14.66); }
+li.blackKey[data-key="T"] { left: calc(100% / 36 * 15.66); }
+li.blackKey[data-key="Y"] { left: calc(100% / 36 * 17.66); }
+li.blackKey[data-key="I"] { left: calc(100% / 36 * 18.66); }
+li.blackKey[data-key="O"] { left: calc(100% / 36 * 19.66); }
+li.blackKey[data-key="P"] { left: calc(100% / 36 * 21.66); }
+li.blackKey[data-key="S"] { left: calc(100% / 36 * 22.66); }
+li.blackKey[data-key="D"] { left: calc(100% / 36 * 24.66); }
+li.blackKey[data-key="G"] { left: calc(100% / 36 * 25.66); }
+li.blackKey[data-key="H"] { left: calc(100% / 36 * 26.66); }
+li.blackKey[data-key="J"] { left: calc(100% / 36 * 28.66); }
+li.blackKey[data-key="L"] { left: calc(100% / 36 * 29.66); }
+li.blackKey[data-key="Z"] { left: calc(100% / 36 * 31.66); }
+li.blackKey[data-key="C"] { left: calc(100% / 36 * 32.66); }
+li.blackKey[data-key="V"] { left: calc(100% / 36 * 33.66); }
+
+/*
+ul.DA-PianoKeyboard li.blackKey[data-key] {
+    left: calc(
+        (var(--white-index, 0) * var(--w)) + (var(--w) * 0.66) 
+    );
+}
+*/
+
+.whiteKey.pressed {
+    background: #ffe066 !important; 
+    box-shadow: 0 0 8px #ffec99 !important;
+}
+
+.whiteKey:hover:active {
+    background: #ffe066;
+    box-shadow: 0 0 8px #ffec99;
+}
+
+.blackKey.pressed {
+    background: #ffe066 !important;
+    box-shadow: 0 0 8px #222 !important;
+}
+
+.blackKey:hover:active {
+    background: #ffe066;
+    box-shadow: 0 0 8px #222;
+}

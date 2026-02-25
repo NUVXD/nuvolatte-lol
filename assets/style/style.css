@@ -218,7 +218,7 @@ header {
 .window {
     height: auto;
     width: 705px;
-    padding: 3px;
+    padding: 4px;
     margin: 5px;
     box-shadow:
         inset -1px -1px #0a0a0a,
@@ -358,7 +358,7 @@ header {
     }
 }
 
-footer {
+#foot {
     color: transparent;
     user-select: none;
     padding: 10px;
@@ -371,7 +371,7 @@ footer {
     -webkit-background-clip: text;
 }
 
-footer p {
+#foot p {
     text-align: center;
     font-family: "ms95-sans-serif";
     font-weight: bolder;

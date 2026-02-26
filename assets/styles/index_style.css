@@ -556,6 +556,9 @@ select:active {
     color: #0033d9;
     padding-top: 1px;
     padding-bottom: 1px;
+    border-color: #808080;
+    border-style: dotted;
+    border-width: 0 0 1px 0;
 }
 
 .changelog-entry-div p:first-of-type {
@@ -564,6 +567,7 @@ select:active {
 
 .changelog-entry-div p:last-of-type {
     padding-bottom: 6px;
+    border: none;
 }
 
 .changelog-entry p::before {

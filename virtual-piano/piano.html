@@ -3,12 +3,13 @@
 
 <head>
     <link rel="stylesheet" href="/assets/styles/piano_style.css">
-    <script src="piano-script.js"></script>
+    <script src="piano.js"></script>
     <script type="text/javascript">
         //everything that needs to wait for DOM being already loaded
         window.addEventListener('DOMContentLoaded', () => {
             const volumeSlider = window.parent.document.getElementById("piano-volume-slider");
             const transposer = window.parent.document.getElementById("piano-transposer");
+            const wavetypeSelect = window.parent.document.getElementById("piano-wavetype");
 
             bindKeysToFunction(async function (el, noteLabel, state, keyIndex) {
                 await ensureAudio();
@@ -30,6 +31,14 @@
             if (transposer) {
                 transposer.addEventListener("input", (e) => {
                     transposeSemitones = parseInt(e.target.value, 10);
+                });
+            }
+
+            if (wavetypeSelect) {
+                wavetypeSelect.addEventListener("input", (e) => {
+
+                    wavetype = e.target.value;
+                    console.log(wavetype);
                 });
             }
 

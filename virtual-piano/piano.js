@@ -98,6 +98,7 @@ function bindKeysToFunction(callback) {
 const audio = new (window.AudioContext)();
 const mainGain = audio.createGain();
 const activeNotes = new Map();
+let wavetype = "triangle";
 
 // initialize audio context
 async function ensureAudio() {
@@ -123,7 +124,7 @@ function synthNoteOn(keyIndex, velocity = 1) {
     const osc = audio.createOscillator();
     const gain = audio.createGain();
 
-    osc.type = "triangle";
+    osc.type = wavetype;
     osc.frequency.value = freq;
 
     const now = audio.currentTime;

@@ -12,9 +12,12 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-K55B57JSKV');
     </script>
+    <!--
+    <script src="fengari-web.js" type="text/javascript"></script>
+    <script src="luatest.lua" type="application/lua" async></script>
+    -->
 </head>
 
 <body>
@@ -45,7 +48,7 @@
             <img src="assets/images/gifs/calvin_peeing.gif"
                 style="position:absolute; top:500px; width:90px; left:-50px; z-index:-1;">
 
-            <div class="window side">
+            <div class="window small">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/static/folder.gif">Resources.exe</div>
                     <div class="title-bar-controls">
@@ -61,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="window side">
+            <div class="window small">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/static/notepad.gif">Stickynotes.exe</div>
                     <div class="title-bar-controls">
@@ -84,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="window side">
+            <div class="window small">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/static/globe.gif">Discussions.exe</div>
                     <div class="title-bar-controls">
@@ -107,9 +110,9 @@
             <img src="assets/images/gifs/deltarune-tenna.gif"
                 style="position:absolute; top:-10px; width:80px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
 
-            <div class="window side">
+            <div class="window small">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/musicicon.gif">Test.exe</div>
+                    <div class="title-bar-text"><img src="assets/images/static/musicicon.gif">Music.exe</div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -123,9 +126,9 @@
                 </div>
             </div>
 
-            <div class="window side">
+            <div class="window small">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/clown.gif">Test.exe</div>
+                    <div class="title-bar-text">test.exe</div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -165,7 +168,7 @@
                 </table>
             </div>
 
-            <div class="window side">
+            <div class="window small">
                 <div class="panel" style="display: flex; height: 60px;">
                     <button style="width: 50%; background: none;">
                         <img src="assets/images/gifs/italy-flag.gif" alt="IT" style="width: 90%; height: 80%;">
@@ -180,9 +183,10 @@
 
         <!-- Center -->
         <div class="center">
-            <div class="window">
+
+            <div class="window large">
                 <div class="title-bar">
-                    <div class="title-bar-text">Test.exe</div>
+                    <div class="title-bar-text">Welcome.exe</div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -194,6 +198,64 @@
                     <h1>test</h1>
                     <p>test<br>test<br>test</p>
                 </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; position: relative; width: 100%; padding-left: 10px;">
+
+                <div class="window medium">
+                    <div class="title-bar">
+                        <div class="title-bar-text"><img src="/assets/images/static/news.gif">Changelog.exe</div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div class="panel"
+                        style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                        <div id="changelog">
+                            <div class="changelog-entry">
+                                <h3>26.02.2026</h3>
+                                <div class="changelog-entry-div">
+                                    <p>Added the changelog</p>
+                                </div>
+                            </div>
+                            <div class="changelog-entry">
+                                <h3>test</h3>
+                                <div class="changelog-entry-div">
+                                    <p>test</p>
+                                    <p>test</p>
+                                    <p>test</p>
+                                </div>
+                            </div>
+                            <div class="changelog-entry">
+                                <h3>test</h3>
+                                <div class="changelog-entry-div">
+                                    <p>test</p>
+                                    <p>test</p>
+                                    <p>test</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="window medium">
+                    <div class="title-bar">
+                        <div class="title-bar-text"><img src="assets/images/static/clown.gif">FunnyPics.exe</div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div class="panel"
+                        style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                        <h1>test</h1>
+                        <p>test</p>
+                    </div>
+                </div>
+
             </div>
 
             <div class="blinkies">
@@ -208,7 +270,7 @@
             </div>
 
             <!-- VIRTUAL PIANO WINDOW -->
-            <div class="window">
+            <div class="window large">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/static/piano.gif">VirtualPiano.exe</div>
                     <div class="title-bar-controls">

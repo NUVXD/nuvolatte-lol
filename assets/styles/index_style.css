@@ -14,13 +14,13 @@
     /* Gradients */
     --default-rainbow-gradient: repeating-linear-gradient(90deg, #FF4136, #FF851B, #FFDC00, #2ECC40, #0074D9, #B10DC9);
     --strong-rainbow-gradient: repeating-linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
-    --neon-rainbow-gradient: repeating-linear-gradient(90deg, #FF073A, #FF6B35, #F7EC13, #39FF14, #00FFFF, #BF00FF, #FF00FF);
     --pastel-rainbow-gradient: repeating-linear-gradient(90deg, #FF6B6B, #FFE66D, #4ECDC4, #45B7D1, #A855F7);
-    /* 45 */
     --default-rainbow-gradient45: repeating-linear-gradient(45deg, #FF4136, #FF851B, #FFDC00, #2ECC40, #0074D9, #B10DC9);
     --strong-rainbow-gradient45: repeating-linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
-    --neon-rainbow-gradient45: repeating-linear-gradient(45deg, #FF073A, #FF6B35, #F7EC13, #39FF14, #00FFFF, #BF00FF, #FF00FF);
     --pastel-rainbow-gradient45: repeating-linear-gradient(45deg, #FF6B6B, #FFE66D, #4ECDC4, #45B7D1, #A855F7);
+    --default-rainbow-gradient90: repeating-linear-gradient(0deg, #FF4136, #FF851B, #FFDC00, #2ECC40, #0074D9, #B10DC9);
+    --strong-rainbow-gradient90: repeating-linear-gradient(0deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
+    --pastel-rainbow-gradient90: repeating-linear-gradient(0deg, #FF6B6B, #FFE66D, #4ECDC4, #45B7D1, #A855F7);
 
     /* Virtual Piano */
     --meowsic-height: 240px;
@@ -53,17 +53,21 @@ body {
     overflow-x: hidden;
 }
 
-body::before, body::after {
+body::before,
+body::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 280px;
+    width: 267px;
+    /* SIX SEVEEEN */
     background-image: url("/assets/images/tiles/buildings.gif");
     background-repeat: repeat-y;
     background-size: 280px auto;
-
-    filter: opacity(0.85) contrast(0.9) saturate(0.95);
+    border-color: #9028c0;
+    border-style: solid;
+    border-width: 0 5px 0 0;
+    filter: opacity(85%) contrast(90%) saturate(95%);
     pointer-events: none;
     z-index: -2;
 }
@@ -135,7 +139,8 @@ header {
 
 .navbar li {
     display: inline-block;
-    padding: 0px 67px; /* SIX SEVEEEN */
+    padding: 0px 67px;
+    /* SIX SEVEEEN */
 
 }
 
@@ -143,7 +148,8 @@ header {
     background: none;
     color: transparent;
     background: var(--strong-rainbow-gradient);
-    background-size: 67px; /* SIX SEVEEEN */
+    background-size: 67px;
+    /* SIX SEVEEEN */
     background-clip: text;
     -webkit-background-clip: text;
     display: inline-block;
@@ -193,7 +199,7 @@ header {
 }
 
 .center {
-    margin-left: 250px;
+    margin-left: 253px;
     width: 700px;
 
 }
@@ -207,7 +213,7 @@ header {
 }
 
 .right {
-    margin-left: 990px;
+    margin-left: 993px;
 }
 
 .panel {
@@ -247,9 +253,7 @@ header {
 /* Windows and stuff, css taken and modified from https://github.com/jdan/98.css */
 .window {
     height: auto;
-    width: 705px;
     padding: 4px;
-    margin: 5px;
     box-shadow:
         inset -1px -1px #0a0a0a,
         inset 1px 1px #dfdfdf,
@@ -260,7 +264,17 @@ header {
     font-size: 15px;
 }
 
-.window.side {
+.window.large {
+    width: 705px;
+    margin: 5px;
+}
+
+.window.medium {
+    width: 350px;
+    margin: 4px;
+}
+
+.window.small {
     width: 220px;
     margin: 4px;
 }
@@ -425,12 +439,14 @@ select:active {
 
 .blinkies {
     user-select: none;
-    width: 100%;
+    width: 705px;
     position: relative;
-    display: block;
-    padding-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 5px 5px 5px;
     align-items: center;
     justify-content: center;
+    gap: 4px;
 }
 
 .blinkies img {
@@ -474,12 +490,92 @@ select:active {
     }
 }
 
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-button:increment {
+    height: 17px;
+    background-image: url("/assets/images/static/button-up.svg");
+}
+
+::-webkit-scrollbar-button:decrement {
+    height: 17px;
+    background-image: url("/assets/images/static/button-down.svg");
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dfdfdf;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+}
+
+::-webkit-scrollbar-track {
+    background-image: url("/assets/images/static/scrollbar-background.svg");
+}
+
+#changelog {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.changelog-entry {
+    margin-top: 20px;
+    margin-left: 6px;
+    margin-right: 4px;
+    background-color: #c0c0c0;
+}
+
+.changelog-entry:first-of-type {
+    margin-top: 20px;
+}
+
+.changelog-entry:last-of-type {
+    margin-bottom: 20px;
+}
+
+.changelog-entry-div {
+    border-color: floralwhite;
+    border-bottom-width: 2px;
+    border-style: inset;
+}
+
+.changelog-entry h3 {
+    border-color: floralwhite;
+    border-width: 1px;
+    border-style: inset;
+    margin: 0px;
+    padding-top: 1px;
+    text-align: center;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    background-color: #000080;
+}
+
+.changelog-entry p {
+    font-family: "W95FA";
+    color: #0033d9;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.changelog-entry-div p:first-of-type {
+    padding-top: 6px;
+}
+
+.changelog-entry-div p:last-of-type {
+    padding-bottom: 6px;
+}
+
+.changelog-entry p::before {
+    content: "\2022\205F"
+}
+
+
 #meowsic {
     margin: 0 -1%;
     background-image: url("/virtual-piano/assets/static/meowsic.gif");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    /* intentional stretch kept */
     width: 102%;
     height: var(--meowsic-height);
 }
@@ -507,7 +603,8 @@ select:active {
     background: none;
     color: transparent;
     background: var(--default-rainbow-gradient);
-    background-size: 67px; /* SIX SEVEEEN */
+    background-size: 67px;
+    /* SIX SEVEEEN */
     background-clip: text;
     -webkit-background-clip: text;
     padding: 10px;

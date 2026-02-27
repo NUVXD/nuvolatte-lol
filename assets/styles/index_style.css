@@ -639,8 +639,10 @@ select:active {
     overflow-y: scroll;
 }
 
-#funnypics-window h1,
-#funnypics-window p,
+#funnypics-window .panel {
+    height: 150px;
+}
+
 #welcome-window h1,
 #welcome-window p {
     color: #fb95ff;

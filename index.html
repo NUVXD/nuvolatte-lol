@@ -4,9 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuvolatte's Corner</title>
+    <title data-localize="title">Nuvolatte's Corner</title>
     <link rel="stylesheet" href="assets/styles/index_style.css">
     <link rel="icon" href="assets/images/gifs/mouse_quiet.gif">
+    <script src="language.js"></script>
+    <script>
+        const defaultText = {};
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("[data-localize]").forEach(e => {
+                const key = e.dataset.localize;
+                defaultText[key] = e.innerHTML;
+            });
+
+            const savedLanguage = localStorage.getItem("language") || "english";
+            setLanguage(savedLanguage);
+        });
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K55B57JSKV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -21,9 +34,7 @@
 </head>
 
 <body>
-    <upper>
-        <div class="banner"></div>
-    </upper>
+    <div class="banner"></div>
 
     <div class="container">
         <!-- Navbar -->
@@ -32,11 +43,11 @@
                 style="position:absolute; top:-67px; width:95px; height:80px; left:50px;">
             <div class="navbar">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Stuff</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">AAAH.wav</a></li>
+                    <li><a data-localize="navbarHome" href="">Home</a></li>
+                    <li><a data-localize="navbarAbout" href="#">About</a></li>
+                    <li><a data-localize="navbarStuff" href="#">Stuff</a></li>
+                    <li><a data-localize="navbarBlog" href="#">Blog</a></li>
+                    <li><a data-localize="navbarAAAH" href="#">AAAH.wav</a></li>
                 </ul>
             </div>
         </header>
@@ -48,46 +59,47 @@
             <img src="assets/images/gifs/calvin_peeing.gif"
                 style="position:absolute; top:500px; width:90px; left:-50px; z-index:-1;">
 
-            <div class="window small">
+            <div class="window small" id="resources-window">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/folder.gif">Resources.exe</div>
+                    <div class="title-bar-text"><img src="assets/images/icons/folder.gif"><data
+                            data-localize="windowTitleRes">Resources.exe</data></div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel"
+                <div data-localize="panelRes" class="panel"
                     style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
                     <h1>Browse!</h1>
                     <p>test<br>test<br>test</p>
                 </div>
             </div>
 
-            <div class="window small">
+            <div class="window small" id="stickynotes-window">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/notepad.gif">Stickynotes.exe</div>
+                    <div class="title-bar-text"><img src="assets/images/icons/notepad.gif"><data
+                            data-localize="windowTitleNotes">Stickynotes.exe</data></div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel"
-                    style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100%;">
+                <div data-localize="panelNotes" class="panel"
+                    style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100% 30%;">
                     <h1>TODO:</h1>
-                    <p>
-                        - Everything
-                        <br>
-                        - Dinner
-                        <br>
-                    </p>
+                    <p>Make left, center, and right contents as flex; remove static coordinates</p>
+                    <p>Everything</p>
+                    <p>Dinner</p>
+                    <p>Sleep</p>
                 </div>
             </div>
 
-            <div class="window small">
+            <div class="window small" id="discussions-window">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/globe.gif">Discussions.exe</div>
+                    <div class="title-bar-text"><img src="assets/images/icons/w98_world.ico"><data
+                            data-localize="windowTitleDiscuss">Discussions.exe</data></div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -105,12 +117,41 @@
 
         <!-- Right Sidebar -->
         <div class="right">
-            <img src="assets/images/gifs/deltarune-tenna.gif"
-                style="position:absolute; top:-10px; width:80px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
 
-            <div class="window small">
+            <div class="window small" id="settings">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/musicicon.gif">Music.exe</div>
+                    <div class="title-bar-text"><img src="assets/images/icons/w98_gears.ico"><data
+                            data-localize="windowTitleSettings">Settings.exe</data></div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
+                    </div>
+                </div>
+                <div class="panel">
+
+                    <div class="panel" style="display: flex; height: 30px;">
+
+                        <button onclick="setLanguage('italian')" style="width: 50%; background: none;">
+                            <img src="assets/images/gifs/italy-flag.gif" alt="Italian Flag"
+                                style="width: 90%; height: 95%; margin-top: 1px;">
+                        </button>
+                        <button onclick="setLanguage('english')" style="width: 50%; background: none;">
+                            <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="English Flag"
+                                style="width: 90%; height: 95%; margin-top: 1px;">
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="window small" id="music-window">
+                <img src="assets/images/gifs/deltarune-tenna.gif"
+                    style="position:absolute; bottom: 80px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico"><data
+                            data-localize="windowTitleMusic">Music.exe</data></div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -119,22 +160,6 @@
                 </div>
                 <div class="panel"
                     style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
-                    <h1>test</h1>
-                    <p>test<br>test<br>test</p>
-                </div>
-            </div>
-
-            <div class="window small">
-                <div class="title-bar">
-                    <div class="title-bar-text">test.exe</div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div class="panel"
-                    style="background-image: url(/assets/images/tiles/confetti.jpg); background-size: 30%;">
                     <h1>test</h1>
                     <p>test<br>test<br>test</p>
                 </div>
@@ -166,44 +191,39 @@
                 </table>
             </div>
 
-            <div class="window small">
-                <div class="panel" style="display: flex; height: 60px;">
-                    <button style="width: 50%; background: none;">
-                        <img src="assets/images/gifs/italy-flag.gif" alt="IT" style="width: 90%; height: 80%;">
-                    </button>
-                    <button style="width: 50%; background: none;">
-                        <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="EN" style="width: 90%; height: 80%;">
-                    </button>
-                </div>
-            </div>
-
         </div>
 
         <!-- Center -->
         <div class="center">
 
-            <div class="window large">
+            <div class="window large" id="welcome-window">
                 <div class="title-bar">
-                    <div class="title-bar-text">Welcome.exe</div>
+                    <div class="title-bar-text">
+                        <img src="assets/images/icons/w98_note.ico">
+                        <data data-localize="windowTitleWelcome">Welcome.exe</data>
+                    </div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel"
+                <div class="panel" data-localize="panelWelcome"
                     style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
-                    <h1>test</h1>
-                    <p>test<br>test<br>test</p>
+                    <h1>&star; Welcome! &star;</h1>
+                    <p>test</p>
                 </div>
             </div>
 
             <div
                 style="display: flex; justify-content: center; align-items: center; position: relative; width: 100%; padding-left: 10px;">
 
-                <div class="window medium">
+                <div class="window medium" id="changelog-window">
                     <div class="title-bar">
-                        <div class="title-bar-text"><img src="/assets/images/static/news.gif">Changelog.exe</div>
+                        <div class="title-bar-text">
+                            <img src="/assets/images/icons/w98_newspaper.ico">
+                            <data data-localize="windowTitleChanges">Changelog.exe</data>
+                        </div>
                         <div class="title-bar-controls">
                             <button class="MinimizeButton"></button>
                             <button class="MaximizeButton"></button>
@@ -215,34 +235,32 @@
                         <div id="changelog">
                             <div class="changelog-entry">
                                 <h3>27.02.2026</h3>
-                                <div class="changelog-entry-div">
+                                <div data-localize="change2702" class="changelog-entry-div">
+                                    <p>Added crude localization for italian and modified language buttons (manual translations for now)</p>
                                     <p>Added header banner, made with SAI2!</p>
+                                    <p>Changed the design of the navigation bar, definitely still gonna change tho!</p>
+                                    <p>Revamped some of the icons</p>
                                 </div>
                             </div>
                             <div class="changelog-entry">
                                 <h3>26.02.2026</h3>
-                                <div class="changelog-entry-div">
+                                <div data-localize="change2602" class="changelog-entry-div">
                                     <p>Improved layout structure</p>
                                     <p>Added the changelog</p>
                                     <p>Added the ability to choose the wave type for the virtual piano</p>
                                     <p>Added side banners, made them with blender and paint.net :D</p>
                                 </div>
                             </div>
-                            <div class="changelog-entry">
-                                <h3>test</h3>
-                                <div class="changelog-entry-div">
-                                    <p>test</p>
-                                    <p>test</p>
-                                    <p>test</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="window medium">
+                <div class="window medium" id="funnypics-window">
                     <div class="title-bar">
-                        <div class="title-bar-text"><img src="assets/images/static/clown.gif">FunnyPics.exe</div>
+                        <div class="title-bar-text">
+                            <img src="assets/images/icons/clown.gif">
+                            <data data-localize="windowTitleFunny">FunnyPics.exe</data>
+                        </div>
                         <div class="title-bar-controls">
                             <button class="MinimizeButton"></button>
                             <button class="MaximizeButton"></button>
@@ -270,9 +288,12 @@
             </div>
 
             <!-- VIRTUAL PIANO WINDOW -->
-            <div class="window large">
+            <div class="window large" id="virtualpiano-window">
                 <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/static/piano.gif">VirtualPiano.exe</div>
+                    <div class="title-bar-text">
+                        <img src="assets/images/icons/w98_midi.ico">
+                        <data data-localize="windowTitleVP">VirtualPiano.exe</data>
+                    </div>
                     <div class="title-bar-controls">
                         <button class="MinimizeButton"></button>
                         <button class="MaximizeButton"></button>
@@ -288,11 +309,11 @@
                 </div>
                 <div class="field-control">
                     <p>Volume:</p>
-                    <p>Low</p>
+                    <p data-localize="vpVolLow">Low</p>
                     <input id="piano-volume-slider" type="range" min="0" max="1" step="0.01" value="0.3">
-                    <p>High</p>
+                    <p data-localize="vpVolHigh">High</p>
 
-                    <p style="padding-left: 10px;">Transpose:</p>
+                    <p data-localize="vpTranspose" style="padding-left: 10px;">Transpose:</p>
                     <select id="piano-transposer">
                         <option>+5</option>
                         <option>+4</option>
@@ -307,7 +328,7 @@
                         <option>-5</option>
                     </select>
 
-                    <p style="padding-left: 10px;">Wave Type:</p>
+                    <p data-localize="vpWavetype" style="padding-left: 10px;">Wave Type:</p>
                     <select id="piano-wavetype">
                         <option selected>triangle</option>
                         <option>sine</option>
@@ -347,7 +368,7 @@
             <!-------------------->
 
             <div id="foot">
-                <p>
+                <p data-localize="foot">
                     Scribbled by Nuvola, <br>with hate &hearts;.
                     <br>
                     <br>

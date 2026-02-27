@@ -109,15 +109,17 @@ header {
 }
 
 .banner {
-    height: 100px;
+    height: 130px;
     width: 100%;
-    /*
-    background-image: url("/assets/images/static/header.gif");
+
+    background-image: url("/assets/images/static/banner.png");
     background-repeat: no-repeat;
     background-position: center;
-    */
+    background-size: 50%;
+    z-index: -1;
+
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: -10px;
     position: relative;
 }
 

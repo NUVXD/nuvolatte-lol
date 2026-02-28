@@ -20,6 +20,13 @@
             setLanguage(savedLanguage);
         });
     </script>
+    <script>
+        fetch("https://counter.nuvolatte.workers.dev")
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById("visits").textContent = "\u205F" + data.count;
+            });
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K55B57JSKV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -109,9 +116,10 @@
                     </div>
                 </div>
                 <div class="panel">
-                    <iframe title="Discussions chat box" src="https://www5.cbox.ws/box/?boxid=961512&boxtag=joG2Zt" width="100%" height="340px"
-                        allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0"
-                        scrolling="auto" style="margin: 1px 0px -6px 1px; user-select: none;"></iframe>
+                    <iframe title="Discussions chat box" src="https://www5.cbox.ws/box/?boxid=961512&boxtag=joG2Zt"
+                        width="100%" height="340px" allowtransparency="yes" allow="autoplay" frameborder="0"
+                        marginheight="0" marginwidth="0" scrolling="auto"
+                        style="margin: 1px 0px -6px 1px; user-select: none;"></iframe>
                 </div>
             </div>
 
@@ -148,9 +156,10 @@
                 </div>
             </div>
 
+            <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
+                style="position:absolute; top: 67px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
+
             <div class="window small" id="music-window">
-                <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
-                    style="position:absolute; bottom: 80px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico" alt="Music.exe Icon"><data
                             data-localize="windowTitleMusic">Music.exe</data></div>
@@ -165,6 +174,11 @@
                     <h1>test</h1>
                     <p>test<br>test<br>test</p>
                 </div>
+            </div>
+
+            <div id="visits-box">
+                <p data-localize="visitsCounter">Visits:</p>
+                <p id="visits">&ThickSpace;Loading...</p>
             </div>
 
             <div class="buttons">
@@ -241,6 +255,12 @@
                         style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
                         <div id="changelog">
                             <div class="changelog-entry">
+                                <h3>28.02.2026</h3>
+                                <div data-localize="change2802" class="changelog-entry-div">
+                                    <p>Added a visits counter, it increments on page load as to avoid cookies&#x1F36A;</p>
+                                </div>
+                            </div>
+                            <div class="changelog-entry">
                                 <h3>27.02.2026</h3>
                                 <div data-localize="change2702" class="changelog-entry-div">
                                     <p>Added crude localization for italian and modified language buttons (manual
@@ -248,7 +268,8 @@
                                     <p>Added header banner, made with SAI2!</p>
                                     <p>Changed the design of the navigation bar, definitely still gonna change tho!</p>
                                     <p>Revamped some of the icons</p>
-                                    <p>Improved accessibility slightly by adding alt names and titles for visual elements</p>
+                                    <p>Improved accessibility slightly by adding alt names and titles for visual
+                                        elements</p>
                                 </div>
                             </div>
                             <div class="changelog-entry">
@@ -310,8 +331,8 @@
                 <div class="panel"
                     style="background-image: url(/assets/images/tiles/pattern1.gif); background-image: url(/assets/images/tiles/pattern1.gif); background-repeat: repeat;">
                     <div id="meowsic">
-                        <iframe title="VirtualPiano" id="piano" src="virtual-piano/piano.html" allow="fullscreen" height="100%" width="100%"
-                            scrolling="no" frameborder="no"></iframe>
+                        <iframe title="VirtualPiano" id="piano" src="virtual-piano/piano.html" allow="fullscreen"
+                            height="100%" width="100%" scrolling="no" frameborder="no"></iframe>
                     </div>
                 </div>
                 <div class="field-control">

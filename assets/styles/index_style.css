@@ -577,6 +577,35 @@ select:active {
     content: "\2022\205F"
 }
 
+#visits-box {
+    user-select: none;
+    width: 220px;
+    background: #c0c0c0;
+    background-image: url("/assets/images/tiles/cloud.gif");
+    background-size: 100%;
+    background-repeat: repeat;
+    border-style: groove;
+    border-color: #c0c0c0;
+    border-width: 4px;
+    border-radius: 20px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    margin-bottom: 3px;
+    align-content: center;
+    justify-content: center;
+}
+
+#visits-box p {
+    font-family: "W95FA";
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #0033d9;
+}
 
 #meowsic {
     margin: 0 -1%;

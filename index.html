@@ -7,29 +7,13 @@
     <title data-localize="title">Nuvolatte's Corner</title>
     <link rel="stylesheet" href="assets/styles/index_style.css">
     <link rel="icon" href="assets/images/gifs/mouse_quiet.gif">
-    <script src="language.js"></script>
-    <script>
-        const defaultText = {};
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll("[data-localize]").forEach(e => {
-                const key = e.dataset.localize;
-                defaultText[key] = e.innerHTML;
-            });
-            const savedLanguage = localStorage.getItem("language") || "english";
-            setLanguage(savedLanguage);
-        });
-    </script>
-    <script>
-        const counted = localStorage.getItem("counted");
-        var url = "https://counter.nuvolatte.workers.dev?increment=" + (counted ? "false" : "true");
-        fetch(url).then(res => res.json()).then(data => {
-            document.getElementById("visits").textContent = "\u205F" + data.count;
-            if (!counted) localStorage.setItem("counted", "true");
-        });
-    </script>
+    <script src="localization/language.js"></script>
+    <script src="funny-pics/funnypics.js"></script>
+    <script>const defaultText = {}; document.addEventListener("DOMContentLoaded", () => { document.querySelectorAll("[data-localize]").forEach(e => { const key = e.dataset.localize; defaultText[key] = e.innerHTML; }); const savedLanguage = localStorage.getItem("language") || "english"; setLanguage(savedLanguage); }); </script>
+    <script>const counted = localStorage.getItem("counted"); var url = "https://counter.nuvolatte.workers.dev?increment=" + (counted ? "false" : "true"); fetch(url).then(res => res.json()).then(data => { document.getElementById("visits").textContent = "\u205F" + data.count; if (!counted) localStorage.setItem("counted", "true"); }); </script>
     <!--
     <script src="fengari-web.js" type="text/javascript"></script>
-    <script src="luatest.lua" type="application/lua" async></script>
+    <script src="/funny-pics/funnypics.lua" type="application/lua" async></script>
     -->
 </head>
 
@@ -58,7 +42,7 @@
                 style="position:absolute; top:64px; width:65px; height:65px; right:-55px; rotate: -10deg; z-index:2;">
             <img src="assets/images/gifs/calvin_peeing.gif" alt=""
                 style="position:absolute; top:500px; width:90px; left:-50px; z-index:-1;">
-
+            <!-- Resources Window -->
             <div class="window small" id="resources-window">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/icons/folder.gif" alt="Resources.exe Icon"><data
@@ -75,7 +59,7 @@
                     <p>test<br>test<br>test</p>
                 </div>
             </div>
-
+            <!-- Notes Window -->
             <div class="window small" id="stickynotes-window">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/icons/notepad.gif"
@@ -96,7 +80,7 @@
                     <p>Sleep</p>
                 </div>
             </div>
-
+            <!-- Discussions Window -->
             <div class="window small" id="discussions-window">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/icons/w98_world.ico"
@@ -120,7 +104,7 @@
 
         <!-- Right Sidebar -->
         <div class="right">
-
+            <!-- Settings Window -->
             <div class="window small" id="settings">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/icons/w98_gears.ico"
@@ -132,9 +116,7 @@
                     </div>
                 </div>
                 <div class="panel">
-
                     <div class="panel" style="display: flex; height: 30px;">
-
                         <button onclick="setLanguage('italian')" style="width: 50%; background: none;">
                             <img src="assets/images/gifs/italy-flag.gif" alt="Language Select: Italian"
                                 style="width: 90%; height: 95%; margin-top: 1px;">
@@ -143,15 +125,13 @@
                             <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="Language Select: English"
                                 style="width: 90%; height: 95%; margin-top: 1px;">
                         </button>
-
                     </div>
-
                 </div>
             </div>
 
             <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
                 style="position:absolute; top: 67px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
-
+            <!-- MusicPlayer Window -->
             <div class="window small" id="music-window">
                 <div class="title-bar">
                     <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico" alt="Music.exe Icon"><data
@@ -168,12 +148,12 @@
                     <p>test<br>test<br>test</p>
                 </div>
             </div>
-
+            <!-- Visits Box -->
             <div id="visits-box">
                 <p data-localize="visitsCounter">Visits:</p>
                 <p id="visits">&ThickSpace;Loading...</p>
             </div>
-
+            <!-- Buttons -->
             <div class="buttons">
                 <table>
                     <tr>
@@ -209,7 +189,7 @@
 
         <!-- Center -->
         <div class="center">
-
+            <!-- Welcome Window -->
             <div class="window large" id="welcome-window">
                 <div class="title-bar">
                     <div class="title-bar-text">
@@ -228,10 +208,10 @@
                     <p>test</p>
                 </div>
             </div>
-
+            <!-- Split Center || Changelog & FunnyPics -->
             <div
                 style="display: flex; justify-content: center; align-items: center; position: relative; width: 100%; padding-left: 10px;">
-
+                <!-- Changelog Window -->
                 <div class="window medium" id="changelog-window">
                     <div class="title-bar">
                         <div class="title-bar-text">
@@ -251,6 +231,7 @@
                                 <h3>28.02.2026</h3>
                                 <div data-localize="change2802" class="changelog-entry-div">
                                     <p>Added a unique-visits counter, works on local storage</p>
+                                    <p>Added a random picture generator, works on Reddit API!</p>
                                 </div>
                             </div>
                             <div class="changelog-entry">
@@ -277,7 +258,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- FunnyPics Window -->
                 <div class="window medium" id="funnypics-window">
                     <div class="title-bar">
                         <div class="title-bar-text">
@@ -290,13 +271,21 @@
                             <button class="CloseButton" title="Close button"></button>
                         </div>
                     </div>
-                    <div class="panel"
-                        style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                    <div class="panel">
+                        <img id="funnypics-image">
+                    </div>
+                    <div class="field-control">
+                        <button data-localize="funnypicsRandomize" title="Randomize funny picture"
+                            id="funnypics-randomizeBtn">Randomize!</button>
+                        <a href="404.html" target="_blank" id="funnypics-openLink">
+                            <button data-localize="funnypicsOpen" title="Open the funny picture"
+                                id="funnypics-openBtn">Open Source</button>
+                        </a>
                     </div>
                 </div>
 
             </div>
-
+            <!-- Blinkies -->
             <div class="blinkies">
                 <img src="assets/images/blinkies/Blinkie5.gif" alt="">
                 <img src="assets/images/blinkies/Blinkie2.gif" alt="">
@@ -308,7 +297,7 @@
                 <img src="assets/images/blinkies/Blinkie9.gif" alt="">
             </div>
 
-            <!-- VIRTUAL PIANO WINDOW -->
+            <!-- Virtual Piano Window -->
             <div class="window large" id="virtualpiano-window">
                 <div class="title-bar">
                     <div class="title-bar-text">
@@ -329,12 +318,13 @@
                     </div>
                 </div>
                 <div class="field-control">
+                    <!-- Gain Control -->
                     <p>Volume:</p>
                     <p data-localize="vpVolLow">Low</p>
                     <input id="piano-volume-slider" type="range" min="0" max="1" step="0.01" value="0.3"
                         title="Virtual piano volume slider">
                     <p data-localize="vpVolHigh">High</p>
-
+                    <!-- Transposer Control -->
                     <p data-localize="vpTranspose" style="padding-left: 10px;">Transpose:</p>
                     <select id="piano-transposer" title="Virtual piano select transpose offset">
                         <option>+5</option>
@@ -349,7 +339,7 @@
                         <option>-4</option>
                         <option>-5</option>
                     </select>
-
+                    <!-- Wave Type Control -->
                     <p data-localize="vpWavetype" style="padding-left: 10px;">Wave Type:</p>
                     <select id="piano-wavetype" title="Virtual piano select wave type">
                         <option selected>triangle</option>

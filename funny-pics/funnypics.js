@@ -32,12 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             let posts = [];
             for (const sub of subreddits[fetchCategory]) {
-                const response = await fetch("https://www.reddit.com/r/" + sub + "/hot.json?limit=50", { cache: "no-store", credentials: "omit", headers: { "User-Agent": "nuvolatte.lol" } });
+                const response = await fetch("https://www.reddit.com/r/" + sub + "/hot.json?limit=50", {
+                    cache: "no-cache",
+                    credentials: "omit",
+                    headers: { "User-Agent": "nuvolatte.lol" }
+                });
                 const data = await response.json();
                 posts.push(...data.data.children.map(p => p.data).filter(p => p.url && isImageUrl(p.url)));
             }
-            posts = shuffleArray(posts);
-            return posts;
+            return shuffleArray(posts);;
         } catch (err) {
             console.error(err);
             return [];
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         image.alt = randomPost.title || "Random Image";
         openSource.href = randomPost.url;
         // pre-fetch next batch at halfway
-        if (!preFetchAlreadyTriggered && currentBatch.length <= 37) {
+        if (!preFetchAlreadyTriggered && Math.floor(currentBatch.length / 2)) {
             preFetchAlreadyTriggered = true;
             nextBatch = await fetchBatch(fetchCategory);
             console.log("pre-fetched next batch");
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("current batch exhausted: swapping batch");
         }
     }
-    // listeners
+    // listenerswhat
     categorySelect.addEventListener("input", async (e) => {
         category = e.target.value;
         currentBatch = [];

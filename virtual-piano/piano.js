@@ -21,31 +21,37 @@ function paeCodeForKeyAtIndex(keyIndex) {
 
 // MAIN BINDING LOGIC
 function bindKeysToFunction(callback) {
-    // MOUSE 
-    var keyElements = Array.from(document.querySelectorAll(".DA-PianoKeyboard li"));
-    keyElements.forEach(function (el, idx) {
-        el.addEventListener('mousedown', function () {
-            el.classList.add('pressed');
+    // MOUSE & TOUCH
+    var keyElements = Array.from(document.querySelectorAll(".pianoKeyboard li"));
+    keyElements.forEach(function (e, idx) {
+        // Mouse
+        e.addEventListener('pointerdown', function () {
+            e.classList.add('pressed');
             var noteLabel = paeCodeForKeyAtIndex(idx);
-            callback(el, noteLabel, 'down', idx);
+            callback(e, noteLabel, 'down', idx);
         });
-        el.addEventListener('mouseup', function () {
-            el.classList.remove('pressed');
+        e.addEventListener('pointerup', function () {
+            e.classList.remove('pressed');
             var noteLabel = paeCodeForKeyAtIndex(idx);
-            callback(el, noteLabel, 'up', idx);
+            callback(e, noteLabel, 'up', idx);
         });
-        el.addEventListener('mouseleave', function () {
-            el.classList.remove('pressed');
+        e.addEventListener('pointercancel', function () {
+            e.classList.remove('pressed');
             var noteLabel = paeCodeForKeyAtIndex(idx);
-            callback(el, noteLabel, 'up', idx);
+            callback(e, noteLabel, 'up', idx);
+        });
+        e.addEventListener('pointerleave', function () {
+            e.classList.remove('pressed');
+            var noteLabel = paeCodeForKeyAtIndex(idx);
+            callback(e, noteLabel, 'up', idx);
         });
     });
 
     // KEYBOARD 
     var pressedKeys = {};
     var keyIndexMap = {};
-    keyElements.forEach(function (el, idx) {
-        var k = el.getAttribute('data-key');
+    keyElements.forEach(function (e, idx) {
+        var k = e.getAttribute('data-key');
         if (k) keyIndexMap[k] = idx;
     });
     document.addEventListener('keydown', function (e) {
@@ -55,10 +61,10 @@ function bindKeysToFunction(callback) {
 
         var liIndex = keyIndexMap[e.key];
         if (liIndex !== undefined) {
-            var el = keyElements[liIndex];
-            el.classList.add('pressed');
+            var e = keyElements[liIndex];
+            e.classList.add('pressed');
             var noteLabel = paeCodeForKeyAtIndex(liIndex);
-            callback(el, noteLabel, 'down', liIndex);
+            callback(e, noteLabel, 'down', liIndex);
         }
     });
     document.addEventListener('keyup', function (e) {
@@ -69,10 +75,10 @@ function bindKeysToFunction(callback) {
 
         var liIndex = keyIndexMap[originalKey];
         if (liIndex !== undefined) {
-            var el = keyElements[liIndex];
-            el.classList.remove('pressed');
+            var e = keyElements[liIndex];
+            e.classList.remove('pressed');
             var noteLabel = paeCodeForKeyAtIndex(liIndex);
-            callback(el, noteLabel, 'up', liIndex);
+            callback(e, noteLabel, 'up', liIndex);
         }
     });
 
@@ -80,8 +86,8 @@ function bindKeysToFunction(callback) {
     window.addEventListener('blur', function () {
         pressedKeys = {};
         // remove highlight
-        keyElements.forEach(function (el) {
-            el.classList.remove('pressed');
+        keyElements.forEach(function (e) {
+            e.classList.remove('pressed');
         });
         // stop sound
         activeNotes.forEach((_, keyIndex) => {

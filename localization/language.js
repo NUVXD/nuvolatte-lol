@@ -24,7 +24,7 @@ const translations = {
         panelNotes: "<h1>DA FA':</h1><p>Rendere i contenuti laterali e centrali flex; rimuovere coordinate statiche</p><p>Tutto</p><p>Cena</p><p>Dormi</p>",
         change2602: "<p>Migliorata la struttura del layout</p><p>Aggiunto il changelog xD</p><p>Aggiunta la possibilità di scegliere il tipo d'onda per il piano virtuale</p><p>Aggiunti i banner laterali, realizzati con blender e paint.net :D</p>",
         change2702: "<p>Aggiunta localizzazione italiana e modificato i pulsanti linguaggio (traduzioni manuali per ora)</p><p>Aggiunto il banner principale, realizzato con SAI2!</p><p>Modificato il design della barra di navigazione, ci saranno comunque altre modifiche in futuro :P</p><p>Migliorate un po' delle icone</p><p>Migliorata leggermente l'accessibilità aggiungendo nomi alternativi e titoli per gli elementi visivi</p>",
-        change2802: "<p>Aggiunto un contatore per le visite uniche, funziona sul local storage</p>",
+        change2802: "<p>Aggiunto un contatore per le visite uniche, funziona sul local storage</p><p>Aggiunto un generatore di immagini randomico, lavora sull'API di Reddit</p><p>Aggiustato l'audio per il Piano Virtuale su mobile (anche se questo sito è infernale per mobile)</p>",
         // VIRTUALPIANO
         vpVolLow: "Basso",
         vpVolHigh: "Alto",
@@ -36,6 +36,11 @@ const translations = {
         foot: "Scarabocchiato da Nuvola, <br>con odio &hearts;.<br><br><img src='assets/images/gifs/www.gif'></img>",
         // VISITS
         visitsCounter: "Visite:",
+        // FUNNY PICS
+        funnypicsRandomize: "Randomizza!",
+        funnypicsOpen: "Apri",
+        "funnypics-category-memes": "Meme",
+        "funnypics-category-cats": "Gatti",
     }
 };
 

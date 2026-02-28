@@ -22,8 +22,10 @@
     --piano-lr-margin: calc((100% - var(--piano-width)) / 2);
     --piano-mask-width-diff: calc(200% - var(--piano-width));
     --piano-mask-width: calc(var(--piano-mask-width-diff) + (var(--piano-mask-width-diff) - var(--piano-width)) / 4);
-    
+
     /* COLORS */
+    --box-shadow-inner: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+    --box-shadow-outer: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px #808080, inset 2px 2px #ffffff;
     /* Gradients */
     --blue-gradient: linear-gradient(90deg, #000080, #1084d0);
     --default-rainbow-gradient: repeating-linear-gradient(90deg, #FF4136, #FF851B, #FFDC00, #2ECC40, #0074D9, #B10DC9);
@@ -50,7 +52,7 @@
 
 ::-webkit-scrollbar-thumb {
     background-color: #dfdfdf;
-    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+    box-shadow: var(--box-shadow-outer);
 }
 
 ::-webkit-scrollbar-track {
@@ -248,11 +250,7 @@ header {
     width: 100%;
     position: relative;
     margin: 4px 0px 2px 0px;
-    box-shadow:
-        inset -1px -1px #ffffff,
-        inset 1px 1px #0a0a0a,
-        inset -2px -2px #dfdfdf,
-        inset 2px 2px #808080;
+    box-shadow: var(--box-shadow-inner);
 }
 
 .panel h1 {
@@ -280,11 +278,7 @@ header {
 .window {
     height: auto;
     padding: 4px;
-    box-shadow:
-        inset -1px -1px #0a0a0a,
-        inset 1px 1px #dfdfdf,
-        inset -2px -2px #808080,
-        inset 2px 2px #ffffff;
+    box-shadow: var(--box-shadow-outer);
     background: #c0c0c0;
     font-family: "W95FA";
     font-size: 15px;
@@ -341,19 +335,11 @@ header {
     background-color: silver;
     box-sizing: border-box;
     border: none;
-    box-shadow:
-        inset -1px -1px #0a0a0a,
-        inset 1px 1px #fff,
-        inset -2px -2px grey,
-        inset 2px 2px #dfdfdf;
+    box-shadow: var(--box-shadow-outer);
 }
 
 .title-bar-controls button:active {
-    box-shadow:
-        inset -1px -1px #ffffff,
-        inset 1px 1px #0a0a0a,
-        inset -2px -2px #dfdfdf,
-        inset 2px 2px #808080;
+    box-shadow: var(--box-shadow-inner);
 }
 
 .CloseButton {
@@ -434,6 +420,8 @@ select {
     padding: 3px 4px;
     border: none;
     height: 21px;
+    font-family: "ms95-sans-serif";
+    text-align: center;
     box-shadow: inset -1px -1px #ffffff;
     background-color: #ffffff;
     padding-right: 32px;
@@ -516,6 +504,7 @@ select:active {
     }
 }
 
+/* CHANGELOG */
 #changelog {
     height: 150px;
     overflow-y: scroll;
@@ -577,6 +566,7 @@ select:active {
     content: "\2022\205F"
 }
 
+/* VISITS */
 #visits-box {
     user-select: none;
     width: 220px;
@@ -607,6 +597,7 @@ select:active {
     color: #0033d9;
 }
 
+/* VIRTUAL PIANO */
 #meowsic {
     margin: 0 -1%;
     background-image: url("/virtual-piano/assets/static/meowsic.gif");
@@ -618,29 +609,20 @@ select:active {
 
 #piano {
     user-select: none;
-
     height: var(--piano-height);
     width: var(--piano-width);
     margin: var(--piano-tb-margin) var(--piano-lr-margin);
-
     mask-image: url("/virtual-piano/assets/static/meowsic-smilemask.gif");
     mask-repeat: no-repeat;
     mask-size: var(--piano-mask-width) calc(200% + 15px);
     mask-position: center;
-
     -webkit-mask-image: url("/virtual-piano/assets/static/meowsic-smilemask.gif");
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: var(--piano-mask-width) calc(200% + 15px);
     -webkit-mask-position: center;
 }
 
-#resources-window h1,
-#resources-window p,
-#music-window h1,
-#music-window p {
-    color: #eff3ff;
-}
-
+/* STICKYNOTES */
 #stickynotes-window h1,
 #stickynotes-window p {
     color: #0033d9;
@@ -668,15 +650,78 @@ select:active {
     overflow-y: scroll;
 }
 
+/* FUNNY PICS */
 #funnypics-window .panel {
-    height: 150px;
+    height: 132px;
+    overflow-y: scroll;
 }
 
+#funnypics-window .panel img {
+    pointer-events: fill;
+    width: 100%;
+    filter: brightness(90%) saturate(130%);
+}
+
+#funnypics-window .field-control {
+    justify-content: center;
+    padding: 0;
+    color: #000;
+}
+
+#funnypics-window .field-control select,
+#funnypics-window .field-control button {
+    height: 20px;
+    padding-top: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    text-wrap: nowrap;
+    font-size: 100%;
+    text-shadow: 1px 1px 2px #919191;
+    background-color: silver;
+    border: 1px dotted rgb(138, 136, 136);
+    box-shadow: var(--box-shadow-outer);
+}
+
+#funnypics-randomizeBtn {
+    width: 50%;
+    letter-spacing: 3px;
+}
+
+#funnypics-window .field-control button:active {
+    padding-top: 3px;
+    box-shadow: var(--box-shadow-inner);
+}
+
+#funnypics-window .field-control a,
+#funnypics-window .field-control select {
+    width: 25%;
+}
+
+#funnypics-randomizeBtn, #funnypics-openBtn,
+#funnypics-window .field-control a,
+#funnypics-window .field-control select {
+    text-wrap: nowrap;
+    font-size: 100%;
+    font-family: "W95FA";
+    font-weight: 200;
+    text-align: center;
+}
+
+#funnypics-window .field-control select:focus {
+    color: #000;
+}
+
+#funnypics-openBtn {
+    width: 100%;
+}
+
+/* WELCOME */
 #welcome-window h1,
 #welcome-window p {
     color: #fb95ff;
 }
 
+/* FOOT */
 #foot {
     user-select: none;
     background: none;
@@ -696,4 +741,12 @@ select:active {
     text-align: center;
     font-family: "ms95-sans-serif";
     font-weight: bolder;
+}
+
+/* OTHER */
+#resources-window h1,
+#resources-window p,
+#music-window h1,
+#music-window p {
+    color: #eff3ff;
 }

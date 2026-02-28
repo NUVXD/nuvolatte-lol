@@ -15,24 +15,17 @@
                 const key = e.dataset.localize;
                 defaultText[key] = e.innerHTML;
             });
-
             const savedLanguage = localStorage.getItem("language") || "english";
             setLanguage(savedLanguage);
         });
     </script>
     <script>
-        fetch("https://counter.nuvolatte.workers.dev")
-            .then(r => r.json())
-            .then(data => {
-                document.getElementById("visits").textContent = "\u205F" + data.count;
-            });
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K55B57JSKV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-K55B57JSKV');
+        if (!localStorage.getItem("counted")) {
+            fetch("https://counter.nuvolatte.workers.dev")
+                .then(r => r.json())
+                .then(data => { document.getElementById("visits").textContent = "\u205F" + data.count; });
+            localStorage.setItem("counted", "true");
+        }
     </script>
     <!--
     <script src="fengari-web.js" type="text/javascript"></script>
@@ -257,7 +250,7 @@
                             <div class="changelog-entry">
                                 <h3>28.02.2026</h3>
                                 <div data-localize="change2802" class="changelog-entry-div">
-                                    <p>Added a visits counter, it increments on page load as to avoid cookies&#x1F36A;</p>
+                                    <p>Added a unique-visits counter, works on local storage</p>
                                 </div>
                             </div>
                             <div class="changelog-entry">

@@ -645,6 +645,31 @@ select:active {
     overflow-y: scroll;
 }
 
+/* BIBLE VERSES */
+#bibleverses-window p {
+    font-size: 16px;
+    color: #ffebc7;
+    padding: 2px;
+}
+
+#bibleverses-window p:first-of-type {
+    font-weight: bold;
+    padding-top: 6px;
+}
+
+#bibleverses-window p:last-of-type {
+    padding-bottom: 6px;
+}
+
+#bibleverses-window .panel {
+    height: 130px;
+    padding-bottom: 6px;
+}
+
+#bibleverses-window .panel {
+    overflow-y: scroll;
+}
+
 /* FUNNY PICS */
 #funnypics-window .panel {
     height: 162px;

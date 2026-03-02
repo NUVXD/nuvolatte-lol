@@ -9,12 +9,34 @@
     <link rel="icon" href="assets/images/gifs/mouse_quiet.gif">
     <script src="localization/language.js"></script>
     <script src="funny-pics/funnypics.js"></script>
-    <script>const defaultText = {}; document.addEventListener("DOMContentLoaded", () => { document.querySelectorAll("[data-localize]").forEach(e => { const key = e.dataset.localize; defaultText[key] = e.innerHTML; }); const savedLanguage = localStorage.getItem("language") || "english"; setLanguage(savedLanguage); }); </script>
-    <script>const counted = localStorage.getItem("counted"); var url = "https://counter.nuvolatte.workers.dev?increment=" + (counted ? "false" : "true"); fetch(url).then(res => res.json()).then(data => { document.getElementById("visits").textContent = "\u205F" + data.count; if (!counted) localStorage.setItem("counted", "true"); }); </script>
-    <!--
-    <script src="fengari-web.js" type="text/javascript"></script>
-    <script src="/funny-pics/funnypics.lua" type="application/lua" async></script>
-    -->
+    <script>
+        /* Localization */
+        const defaultText = {};
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("[data-localize]").forEach(e => {
+                const key = e.dataset.localize;
+                defaultText[key] = e.innerHTML;
+            });
+            const savedLanguage = localStorage.getItem("language") || "english";
+            setLanguage(savedLanguage);
+        });
+        /* Bible Verses */
+        const bibleVerse = "https://bible-api.com/data/web/random";
+        fetch(bibleVerse).then(res => res.json()).then(data => {
+            const book = document.getElementById("bibleverses-book");
+            const verse = document.getElementById("bibleverses-verse");
+            book.textContent = data.random_verse.book + "\u205F" + data.random_verse.chapter + ":" + data.random_verse.verse;
+            verse.textContent = '"' + data.random_verse.text + '"';
+            if (!bibleVerse) etext.textContent = "Couldn't fetch the bible API!";
+        });
+        /* Counter */
+        const counted = localStorage.getItem("counted");
+        var url = "https://counter.nuvolatte.workers.dev?increment=" + (counted ? "false" : "true");
+        fetch(url).then(res => res.json()).then(data => {
+            document.getElementById("visits").textContent = "\u205F" + data.count;
+            if (!counted) localStorage.setItem("counted", "true");
+        }); 
+    </script>
 </head>
 
 <body>
@@ -35,72 +57,70 @@
         </div>
     </header>
 
-        <div id="container">
-            <!-- Left Sidebar -->
-            <div id="left">
-                <!-- Resources Window -->
-                <div class="window small" id="resources-window">
-                    <div class="title-bar">
-                        <div class="title-bar-text"><img src="assets/images/icons/folder.gif"
-                                alt="Resources.exe Icon"><data data-localize="windowTitleRes">Resources.exe</data></div>
-                        <div class="title-bar-controls">
-                            <button class="MinimizeButton"></button>
-                            <button class="MaximizeButton"></button>
-                            <button class="CloseButton"></button>
-                        </div>
-                    </div>
-                    <div data-localize="panelRes" class="panel"
-                        style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
-                        <h1>Browse!</h1>
-                        <p>test<br>test<br>test</p>
+    <div id="container">
+        <!-- Left Sidebar -->
+        <div id="left">
+            <!-- Resources Window -->
+            <div class="window small" id="resources-window">
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/folder.gif" alt="Resources.exe Icon"><data
+                            data-localize="windowTitleRes">Resources.exe</data></div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
                     </div>
                 </div>
-                <!-- Notes Window -->
-                <div class="window small" id="stickynotes-window">
-                    <div class="title-bar">
-                        <div class="title-bar-text"><img src="assets/images/icons/notepad.gif"
-                                alt="StickyNotes.exe Icon"><data data-localize="windowTitleNotes">Stickynotes.exe</data>
-                        </div>
-                        <div class="title-bar-controls">
-                            <button class="MinimizeButton"></button>
-                            <button class="MaximizeButton"></button>
-                            <button class="CloseButton"></button>
-                        </div>
-                    </div>
-                    <div data-localize="panelNotes" class="panel"
-                        style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100% 30%;">
-                        <h1>TODO:</h1>
-                        <p>Make left, center, and right contents as flex; remove static coordinates</p>
-                        <p>Everything</p>
-                        <p>Dinner</p>
-                        <p>Sleep</p>
-                    </div>
+                <div data-localize="panelRes" class="panel"
+                    style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
+                    <h1>Browse!</h1>
+                    <p>test<br>test<br>test</p>
                 </div>
-                <!-- Discussions Window -->
-                <div class="window small" id="discussions-window">
-                    <div class="title-bar">
-                        <div class="title-bar-text"><img src="assets/images/icons/w98_world.ico"
-                                alt="Discussions.exe Icon"><data
-                                data-localize="windowTitleDiscuss">Discussions.exe</data>
-                        </div>
-                        <div class="title-bar-controls">
-                            <button class="MinimizeButton"></button>
-                            <button class="MaximizeButton"></button>
-                            <button class="CloseButton"></button>
-                        </div>
-                    </div>
-                    <div class="panel">
-                        <iframe title="Discussions chat box" src="https://www5.cbox.ws/box/?boxid=961512&boxtag=joG2Zt"
-                            width="100%" height="340px" allowtransparency="yes" allow="autoplay" frameborder="0"
-                            marginheight="0" marginwidth="0" scrolling="auto"
-                            style="margin: 1px 0px -6px 1px; user-select: none;"></iframe>
-                    </div>
-                </div>
-
             </div>
+            <!-- Notes Window -->
+            <div class="window small" id="stickynotes-window">
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/notepad.gif"
+                            alt="StickyNotes.exe Icon"><data data-localize="windowTitleNotes">Stickynotes.exe</data>
+                    </div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
+                    </div>
+                </div>
+                <div data-localize="panelNotes" class="panel"
+                    style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100% 30%;">
+                    <h1>TODO:</h1>
+                    <p>Make left, center, and right contents as flex; remove static coordinates</p>
+                    <p>Everything</p>
+                    <p>Dinner</p>
+                    <p>Sleep</p>
+                </div>
+            </div>
+            <!-- Discussions Window -->
+            <div class="window small" id="discussions-window">
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/w98_world.ico"
+                            alt="Discussions.exe Icon"><data data-localize="windowTitleDiscuss">Discussions.exe</data>
+                    </div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
+                    </div>
+                </div>
+                <div class="panel">
+                    <iframe title="Discussions chat box" src="https://www5.cbox.ws/box/?boxid=961512&boxtag=joG2Zt"
+                        width="100%" height="340px" allowtransparency="yes" allow="autoplay" frameborder="0"
+                        marginheight="0" marginwidth="0" scrolling="auto"
+                        style="margin: 1px 0px -6px 1px; user-select: none;"></iframe>
+                </div>
+            </div>
+        </div>
 
-            <!-- Center -->
-            <div id="center">
+        <!-- Center -->
+        <div id="center">
 
                 <!-- Welcome Window -->
                 <div class="window large" id="welcome-window">
@@ -140,6 +160,12 @@
                             style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
                             <div id="changelog">
                                 <div class="changelog-entry">
+                                <h3>02.03.2026</h3>
+                                <div data-localize="change0203" class="changelog-entry-div">
+                                    <p>Added the frickin' bible</p>
+                                </div>
+                            </div>
+                            <div class="changelog-entry">
                                     <h3>28.02.2026</h3>
                                     <div data-localize="change2802" class="changelog-entry-div">
                                         <p>Added a unique-visits counter, works on local storage</p>
@@ -312,90 +338,108 @@
                     </p>
                 </div>
 
-            </div>
-
-            <!-- Right Sidebar -->
-            <div id="right">
-
-                <!-- Settings Window -->
-                <div class="window small" id="settings">
-                    <div class="title-bar">
-                        <div class="title-bar-text"><img src="assets/images/icons/w98_gears.ico"
-                                alt="Settings.exe Icon"><data data-localize="windowTitleSettings">Settings.exe</data>
-                        </div>
-                        <div class="title-bar-controls">
-                            <button class="MinimizeButton"></button>
-                            <button class="MaximizeButton"></button>
-                            <button class="CloseButton"></button>
-                        </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel" style="display: flex; height: 30px;">
-                            <button onclick="setLanguage('italian')" style="width: 50%; background: none;">
-                                <img src="assets/images/gifs/italy-flag.gif" alt="Language Select: Italian"
-                                    style="width: 90%; height: 95%; margin-top: 1px;">
-                            </button>
-                            <button onclick="setLanguage('english')" style="width: 50%; background: none;">
-                                <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="Language Select: English"
-                                    style="width: 90%; height: 95%; margin-top: 1px;">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- MusicPlayer Window -->
-                <div class="window small" id="music-window">
-                    <div class="title-bar">
-                        <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico" alt="Music.exe Icon"><data
-                                data-localize="windowTitleMusic">Music.exe</data></div>
-                        <div class="title-bar-controls">
-                            <button class="MinimizeButton"></button>
-                            <button class="MaximizeButton"></button>
-                            <button class="CloseButton"></button>
-                        </div>
-                    </div>
-                    <div class="panel"
-                        style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
-                        <h1>test</h1>
-                        <p>test<br>test<br>test</p>
-                    </div>
-                </div>
-                <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
-                    style="position:absolute; top: 67px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
-                <!-- Visits Box -->
-                <div id="visits-box">
-                    <p data-localize="visitsCounter">Visits:</p>
-                    <p id="visits">&ThickSpace;Loading...</p>
-                </div>
-                <!-- Buttons -->
-                <div id="buttonsWrap">
-                    <div class="buttons">
-                        <a href="https://www.antiai.com/" target="_blank">
-                            <img src="assets/images/buttons/antiai.gif" alt="Anti-AI link button">
-                        </a>
-                        <a href="https://ezgif.com/" target="_blank">
-                            <img src="assets/images/buttons/ezgif.png" alt="Ezgif link button">
-                        </a>
-                    </div>
-                    <div class="buttons">
-                        <a href="assets/images/static/furry.jpg" target="_blank">
-                            <img src="assets/images/buttons/furryay.png" alt="FurryYay link button">
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/GeoCities" target="_blank">
-                            <img src="assets/images/buttons/geocities.gif" alt="Geocities link button">
-                        </a>
-                    </div>
-                    <div class="buttons">
-                        <a href="https://www.microsoft.com/" target="_blank">
-                            <img src="assets/images/buttons/microsoft.gif" alt="Microsoft link button">
-                        </a>
-                        <a href="https://apps.microsoft.com/detail/9msmlrh6lzf3" target="_blank">
-                            <img src="assets/images/buttons/notepad.png" alt="Microsoft Notepad link button">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Right Sidebar -->
+        <div id="right">
+
+            <!-- Settings Window -->
+            <div class="window small" id="settings">
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/w98_gears.ico"
+                            alt="Settings.exe Icon"><data data-localize="windowTitleSettings">Settings.exe</data>
+                    </div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel" style="display: flex; height: 30px;">
+                        <button onclick="setLanguage('italian')" style="width: 50%; background: none;">
+                            <img src="assets/images/gifs/italy-flag.gif" alt="Language Select: Italian"
+                                style="width: 90%; height: 95%; margin-top: 1px;">
+                        </button>
+                        <button onclick="setLanguage('english')" style="width: 50%; background: none;">
+                            <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="Language Select: English"
+                                style="width: 90%; height: 95%; margin-top: 1px;">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- MusicPlayer Window -->
+            <div class="window small" id="music-window">
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico" alt="Music.exe Icon"><data
+                            data-localize="windowTitleMusic">Music.exe</data></div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
+                    </div>
+                </div>
+                <div class="panel"
+                    style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
+                    <h1>test</h1>
+                    <p>test<br>test<br>test</p>
+                </div>
+            </div>
+            <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
+                style="position:absolute; top: 67px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
+            <!-- Visits Box -->
+            <div id="visits-box">
+                <p data-localize="visitsCounter">Visits:</p>
+                <p id="visits">&ThickSpace;Loading...</p>
+            </div>
+            <!-- Bible Verses -->
+            <div class="window small" id="bibleverses-window">
+                <div class="title-bar">
+                    <div class="title-bar-text"><img src="assets/images/icons/crossIcon.gif" alt="BibleVerses.exe Icon">
+                        <data data-localize="windowTitleBible">BibleVerses.exe</data>
+                    </div>
+                    <div class="title-bar-controls">
+                        <button class="MinimizeButton"></button>
+                        <button class="MaximizeButton"></button>
+                        <button class="CloseButton"></button>
+                    </div>
+                </div>
+                <div class="panel"
+                    style="background-image: url(assets/images/gifs/cross.gif); background-repeat: no-repeat; background-size: 100%; background-position-y: -30px;">
+                    <p id="bibleverses-book"></p>
+                    <p id="bibleverses-verse"></p>
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div id="buttonsWrap">
+                <div class="buttons">
+                    <a href="https://www.antiai.com/" target="_blank">
+                        <img src="assets/images/buttons/antiai.gif" alt="Anti-AI link button">
+                    </a>
+                    <a href="https://ezgif.com/" target="_blank">
+                        <img src="assets/images/buttons/ezgif.png" alt="Ezgif link button">
+                    </a>
+                </div>
+                <div class="buttons">
+                    <a href="assets/images/static/furry.jpg" target="_blank">
+                        <img src="assets/images/buttons/furryay.png" alt="FurryYay link button">
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/GeoCities" target="_blank">
+                        <img src="assets/images/buttons/geocities.gif" alt="Geocities link button">
+                    </a>
+                </div>
+                <div class="buttons">
+                    <a href="https://www.microsoft.com/" target="_blank">
+                        <img src="assets/images/buttons/microsoft.gif" alt="Microsoft link button">
+                    </a>
+                    <a href="https://apps.microsoft.com/detail/9msmlrh6lzf3" target="_blank">
+                        <img src="assets/images/buttons/notepad.png" alt="Microsoft Notepad link button">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>

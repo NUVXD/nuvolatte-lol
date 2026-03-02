@@ -484,7 +484,7 @@ select:active {
 
 .marquee-track img {
     display: block;
-    flex-shrink: 0px;
+    flex-shrink: 0;
     margin-right: 5px;
     width: 100px;
     height: 55px;
@@ -677,7 +677,7 @@ select:active {
 }
 
 #funnypics-window .panel img {
-    pointer-events: fill;
+    pointer-events: all;
     width: 100%;
     filter: brightness(90%) saturate(130%);
 }
@@ -744,6 +744,10 @@ select:active {
 
 /* FOOT */
 #foot {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
     user-select: none;
     background: none;
     color: transparent;
@@ -755,11 +759,11 @@ select:active {
     padding: 10px;
     bottom: 0;
     justify-content: center;
-
 }
 
 #foot p {
     text-align: center;
+    margin: 5px;
     font-family: "ms95-sans-serif";
     font-weight: bolder;
 }

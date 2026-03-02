@@ -10,6 +10,7 @@
     <script src="localization/language.js"></script>
     <script src="funny-pics/funnypics.js"></script>
     <script>
+        /* Localization */
         const defaultText = {};
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll("[data-localize]").forEach(e => {
@@ -19,23 +20,21 @@
             const savedLanguage = localStorage.getItem("language") || "english";
             setLanguage(savedLanguage);
         });
-    </script>
-    <script>
+        /* Bible Verses */
+        const bibleVerse = "https://bible-api.com/data/web/random";
+        fetch(bibleVerse).then(res => res.json()).then(data => {
+            const book = document.getElementById("bibleverses-book");
+            const verse = document.getElementById("bibleverses-verse");
+            book.textContent = data.random_verse.book + "\u205F" + data.random_verse.chapter + ":" + data.random_verse.verse;
+            verse.textContent = '"' + data.random_verse.text + '"';
+            if (!bibleVerse) etext.textContent = "Couldn't fetch the bible API!";
+        }); 
+        /* Counter */
         const counted = localStorage.getItem("counted");
         var url = "https://counter.nuvolatte.workers.dev?increment=" + (counted ? "false" : "true");
         fetch(url).then(res => res.json()).then(data => {
             document.getElementById("visits").textContent = "\u205F" + data.count;
             if (!counted) localStorage.setItem("counted", "true");
-        }); 
-    </script>
-    <script>
-        const bibleVerse = "https://bible-api.com/data/web/random";
-        fetch(bibleVerse).then(res => res.json()).then(data => {
-            const etext1 = document.getElementById("bibleverses-book");
-            const etext2 = document.getElementById("bibleverses-verse");
-            etext1.textContent = data.random_verse.book + "\u205F" + data.random_verse.chapter + ":" + data.random_verse.verse;
-            etext2.textContent = '"' + data.random_verse.text + '"';
-            if (!bibleVerse) etext.textContent = "Couldn't fetch the bible API!";
         }); 
     </script>
 </head>

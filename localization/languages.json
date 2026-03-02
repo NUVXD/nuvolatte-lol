@@ -20,8 +20,7 @@
         "windowTitleBible": "VersiBiblici.exe",
 
         "panelResources": [
-            "Naviga!",
-            "test"
+            "Naviga!"
         ],
         "panelWelcome": [
             "&star; Saluti! &star;",
@@ -29,7 +28,6 @@
         ],
         "panelNotes": [
             "DA FA':",
-            "Rendere i contenuti laterali e centrali flex; rimuovere coordinate statiche",
             "Tutto",
             "Cena",
             "Dormi"
@@ -54,7 +52,9 @@
             "Aggiustato l'audio per il Piano Virtuale su mobile (anche se questo sito è infernale per mobile)"
         ],
         "change0203": [
-            "Aggiunta la fottutissima bibbia oh yeaah!"
+            "Grande cambiamento alla logica di layout, dovrebbe essere più responsivo",
+            "Aggiunta la fottutissima bibbia oh yeaah!",
+            "Aggiunto un pannello basico per Risorse.exe"
         ],
 
         "visitsCounter": "Visite:",

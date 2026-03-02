@@ -67,6 +67,11 @@ html {
     -webkit-font-smoothing: none;
 }
 
+*::selection {
+    background-color: black;
+    color: white;
+}
+
 img {
     user-select: none;
     pointer-events: none;
@@ -506,6 +511,11 @@ select:active {
     overflow-y: scroll;
 }
 
+#changelog .panel {
+    background-image: url("/assets/images/tiles/stars1.gif");
+    background-repeat: repeat;
+}
+
 .changelog-entry {
     margin-top: 20px;
     margin-left: 6px;
@@ -594,6 +604,11 @@ select:active {
 }
 
 /* VIRTUAL PIANO */
+#virtualpiano-window .panel {
+    background-image: url("/assets/images/tiles/pattern1.gif");
+    background-repeat: repeat;
+}
+
 #meowsic {
     width: 100%;
 }
@@ -626,6 +641,10 @@ select:active {
 #stickynotes-window .panel {
     height: 130px;
     padding-bottom: 6px;
+    overflow-y: scroll;
+    background-image: url("/assets/images/tiles/notebook.gif");
+    background-repeat: repeat-y;
+    background-size: 100% 30%;
 }
 
 #stickynotes-window p {
@@ -639,10 +658,6 @@ select:active {
 
 #stickynotes-window p:last-of-type {
     padding-bottom: 20px;
-}
-
-#stickynotes-window .panel {
-    overflow-y: scroll;
 }
 
 /* BIBLE VERSES */
@@ -664,9 +679,10 @@ select:active {
 #bibleverses-window .panel {
     height: 130px;
     padding-bottom: 6px;
-}
-
-#bibleverses-window .panel {
+    background-image: url("/assets/images/gifs/cross.gif");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: -30px;
     overflow-y: scroll;
 }
 
@@ -737,9 +753,66 @@ select:active {
 }
 
 /* WELCOME */
+#welcome-window .panel {
+    background-image: url("/assets/images/tiles/stars1.gif");
+    background-repeat: repeat;
+}
+
 #welcome-window h1,
 #welcome-window p {
     color: #fb95ff;
+}
+
+/* OTHER */
+#music-window h1,
+#music-window p {
+    color: #eff3ff;
+}
+
+/* MUSIC */
+#music-window .panel {
+    background-image: url("/assets/images/tiles/pattern2.gif");
+    background-size: 30%;
+}
+
+/* RESOURCES */
+
+#resources-window .panel {
+    background-image: url("/assets/images/tiles/paperclips.gif");
+    background-size: 30%;
+    background-repeat: repeat;
+    height: 110px;
+    padding-bottom: 6px;
+    overflow-y: scroll;
+}
+
+#resources-window h1 {
+    color: #0033d9;
+}
+
+#resources-window a {
+    user-select: none;
+    display: block;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-decoration: underline wavy;
+    text-underline-offset: 1px;
+    color: #0033d9;
+}
+
+#resources-window a::before {
+    content: "\2022\205F"
+}
+
+#resources-window a:first-of-type {
+    padding-top: 6px;
+}
+
+#resources-window a:last-of-type {
+    padding-bottom: 20px;
 }
 
 /* FOOT */
@@ -766,12 +839,4 @@ select:active {
     margin: 5px;
     font-family: "ms95-sans-serif";
     font-weight: bolder;
-}
-
-/* OTHER */
-#resources-window h1,
-#resources-window p,
-#music-window h1,
-#music-window p {
-    color: #eff3ff;
 }

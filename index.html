@@ -7,7 +7,7 @@
     <title data-localize="title">Nuvolatte's Corner</title>
     <link rel="stylesheet" href="assets/styles/index_style.css">
     <link rel="icon" href="assets/images/gifs/mouse_quiet.gif">
-    <script src="localization/localize.js"></script>
+    <script src="localization/localize.js" defer></script>
     <script src="funny-pics/funnypics.js"></script>
     <script>
         /* Localization */
@@ -77,10 +77,11 @@
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div data-localize="panelResources" class="panel"
-                    style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
+                <div data-localize="panelResources" class="panel">
                     <h1>Browse!</h1>
-                    <p>test</p>
+                    <a href="https://bible-api.com/" target="_blank">Bible API</a>
+                    <a href="https://bettysgraphics.neocities.org/" target="_blank">Betty's Graphics</a>
+                    <a href="https://gifcities.org/search" target="_blank">Gif Cities</a>
                 </div>
             </div>
             <!-- Notes Window -->
@@ -95,10 +96,8 @@
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div data-localize="panelNotes" class="panel"
-                    style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100% 30%;">
+                <div data-localize="panelNotes" class="panel">
                     <h1>TODO:</h1>
-                    <p>Make left, center, and right contents as flex; remove static coordinates</p>
                     <p>Everything</p>
                     <p>Dinner</p>
                     <p>Sleep</p>
@@ -141,8 +140,7 @@
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel" data-localize="panelWelcome"
-                    style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                <div class="panel" data-localize="panelWelcome">
                     <h1>&star; Welcome! &star;</h1>
                     <p>test</p>
                 </div>
@@ -162,13 +160,14 @@
                             <button class="CloseButton"></button>
                         </div>
                     </div>
-                    <div class="panel"
-                        style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                    <div class="panel">
                         <div id="changelog">
                             <div class="changelog-entry">
                                 <h3>02.03.2026</h3>
                                 <div data-localize="change0203" class="changelog-entry-div">
+                                    <p>Major revamp to the layout logic, should be more responsive</p>
                                     <p>Added the frickin' bible</p>
+                                    <p>Added a basic functional panel for Resources.exe</p>
                                 </div>
                             </div>
                             <div class="changelog-entry">
@@ -245,6 +244,7 @@
                 <img src="assets/images/blinkies/Blinkie6.gif" alt="">
                 <img src="assets/images/blinkies/Blinkie11.gif" alt="">
                 <img src="assets/images/blinkies/Blinkie8.gif" alt="">
+                <img src="assets/images/blinkies/Blinkie10.gif" alt="">
                 <img src="assets/images/blinkies/Blinkie9.gif" alt="">
             </div>
             <!-- Virtual Piano Window -->
@@ -260,8 +260,7 @@
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel"
-                    style="background-image: url(/assets/images/tiles/pattern1.gif); background-repeat: repeat;">
+                <div class="panel">
                     <div id="meowsic">
                         <img id="meowsic-img" src="/virtual-piano/assets/static/meowsic.gif">
                         <iframe title="VirtualPiano" id="piano" src="virtual-piano/piano.html" height="100%"
@@ -336,8 +335,8 @@
             </div>
             <!-- Foot -->
             <div id="foot">
-                <p data-localize="footText1" >Scribbled by Nuvola,</p>
-                <p data-localize="footText2" >with hate &hearts;.</p>
+                <p data-localize="footText1">Scribbled by Nuvola,</p>
+                <p data-localize="footText2">with hate &hearts;.</p>
                 <img src="assets/images/gifs/www.gif" alt="">
             </div>
 
@@ -382,8 +381,7 @@
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel"
-                    style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
+                <div class="panel">
                     <h1>test</h1>
                     <p>test<br>test<br>test</p>
                 </div>
@@ -407,8 +405,7 @@
                         <button class="CloseButton"></button>
                     </div>
                 </div>
-                <div class="panel"
-                    style="background-image: url(assets/images/gifs/cross.gif); background-repeat: no-repeat; background-size: 100%; background-position-y: -30px;">
+                <div class="panel">
                     <p id="bibleverses-book"></p>
                     <p id="bibleverses-verse"></p>
                 </div>

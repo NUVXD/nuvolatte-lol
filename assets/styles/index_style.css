@@ -16,10 +16,10 @@
 
     /* Virtual Piano */
     --meowsic-height: 240px;
-    --piano-height: 40%;
+    --piano-height: 42%;
     --piano-width: 67%;
     /* SIX SEVEEEN */
-    --piano-tb-margin: calc((100% - var(--piano-height)) / 6);
+    --piano-tb-margin: calc((100% - var(--piano-height)) / 3);
     --piano-lr-margin: calc((100% - var(--piano-width)) / 2);
 
     /* COLORS */
@@ -93,8 +93,7 @@ body::-webkit-scrollbar {
     width: 40%;
     min-width: 685px;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 20px 60px;
 
     background-image: url("/assets/images/static/banner.png");
@@ -155,6 +154,7 @@ header {
 }
 
 .navbar a {
+    display: inline-block;
     background: none;
     color: transparent;
     background: var(--blue-gradient);
@@ -206,22 +206,22 @@ header {
 }
 
 #center {
-    width: 50%;
+    width: 60%;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
-    min-width: 425px;
+    min-width: 500px;
 }
 
 #left,
 #right {
-    width: 25%;
+    width: 20%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-right: 10px;
     margin-left: 10px;
-    min-width: 192px;
+    min-width: 250px;
 }
 
 .panel {
@@ -288,7 +288,7 @@ header {
 }
 
 .title-bar img {
-    margin-top: -4px;
+    margin-top: -1px;
     margin-right: 2px;
     height: 16px;
     width: 16px;
@@ -577,7 +577,7 @@ select:active {
     height: 25px;
     position: relative;
     display: flex;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     align-content: center;
     justify-content: center;
 }
@@ -596,7 +596,6 @@ select:active {
 /* VIRTUAL PIANO */
 #meowsic {
     width: 100%;
-    height: var(--meowsic-height);
 }
 
 #meowsic-img {
@@ -610,7 +609,7 @@ select:active {
 #piano {
     user-select: none;
     position: absolute;
-    top: 10px;
+    top: -20px;
     left: 0;
     height: var(--piano-height);
     width: var(--piano-width);

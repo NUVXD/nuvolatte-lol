@@ -17,7 +17,8 @@
     /* Virtual Piano */
     --meowsic-height: 240px;
     --piano-height: 40%;
-    --piano-width: 67%; /* SIX SEVEEEN */
+    --piano-width: 67%;
+    /* SIX SEVEEEN */
     --piano-tb-margin: calc((100% - var(--piano-height)) / 6);
     --piano-lr-margin: calc((100% - var(--piano-width)) / 2);
 
@@ -57,6 +58,10 @@
     background-image: url("/assets/images/static/scrollbar-background.svg");
 }
 
+html {
+    overflow-x: hidden;
+}
+
 * {
     cursor: url("/assets/images/gifs/cursor.gif"), default;
     -webkit-font-smoothing: none;
@@ -83,13 +88,14 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.banner {
-    height: 130px;
-    width: 60%;
+#banner {
+    height: 100px;
+    width: 40%;
+    min-width: 685px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px 60px 20px;
+    padding: 20px 60px;
 
     background-image: url("/assets/images/static/banner.png");
     background-repeat: no-repeat;
@@ -99,17 +105,14 @@ body::-webkit-scrollbar {
     z-index: -1;
 }
 
-#container {
+header {
+    height: 30px;
     width: 60%;
+    padding: 0px;
     margin-left: auto;
     margin-right: auto;
-    display: block;
-    padding: 10px;
-    align-items: center;
+    margin-bottom: 10px;
     position: relative;
-}
-
-header {
     background: #c0c0c0;
     background-image: url("/assets/images/tiles/cloud.gif");
     background-size: 30%;
@@ -118,35 +121,37 @@ header {
     border-color: #c0c0c0;
     border-width: 4px;
     border-radius: 20px;
-    height: 30px;
-    width: 100%;
-    padding: 0px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 20px;
+    min-width: 850px;
+}
+
+#container {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
+    align-items: flex-start;
+    justify-content: center;
     position: relative;
 }
 
 .navbar {
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 0px;
+    padding: 0;
     position: relative;
 }
 
 .navbar ul {
     user-select: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-}
-
-.navbar li {
-    display: inline-block;
-    padding: 0px 67px;
-    /* SIX SEVEEEN */
-
+    padding: 0;
+    margin: 0;
 }
 
 .navbar a {
@@ -159,13 +164,11 @@ header {
     -webkit-background-clip: text;
     padding-top: auto;
     padding-bottom: auto;
-    display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
     font-family: "W95FA";
     font-size: 25px;
     font-weight: bolder;
-    position: relative;
 }
 
 .navbar a:hover {
@@ -194,36 +197,45 @@ header {
     }
 }
 
-.center {
-    margin-left: 253px;
-    width: 700px;
-
+.splitDiv {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin: 5px;
 }
 
-.left,
-.right {
-    width: 200px;
+#center {
+    width: 50%;
+    display: inline-flex;
     flex-wrap: wrap;
-    display: inline;
-    position: absolute;
+    justify-content: center;
+    min-width: 425px;
 }
 
-.right {
-    margin-left: 993px;
+#left,
+#right {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    min-width: 192px;
 }
 
 .panel {
-    height: auto;
     width: 100%;
+    height: auto;
     position: relative;
-    margin: 4px 0px 2px 0px;
+    margin: 4px 0px 2px;
     box-shadow: var(--box-shadow-inner);
 }
 
 .panel h1 {
     user-select: none;
     text-transform: capitalize;
-    margin: 0px;
+    margin: 0;
     padding-top: 2px;
     text-align: center;
     line-height: 25px;
@@ -235,7 +247,7 @@ header {
 
 .panel p {
     margin: 0;
-    padding: 5px 0 8px 0;
+    padding: 5px 0 8px;
     text-align: center;
     font-size: 15px;
     color: #0033d9;
@@ -252,17 +264,17 @@ header {
 }
 
 .window.large {
-    width: 705px;
+    width: 100%;
     margin: 5px;
 }
 
 .window.medium {
-    width: 350px;
+    width: 50%;
     margin: 4px;
 }
 
 .window.small {
-    width: 220px;
+    width: 100%;
     margin: 4px;
 }
 
@@ -284,10 +296,11 @@ header {
 }
 
 .title-bar-text {
+    display: flex;
     font-weight: bold;
     color: white;
     letter-spacing: 0px;
-    margin-right: 24px;
+    padding-right: 5px;
 }
 
 .title-bar-controls {
@@ -435,15 +448,31 @@ select:active {
     height: 20px;
 }
 
-.buttons table {
-    margin-left: -20px;
+#buttonsWrap {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.buttons {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.buttons a {
+    padding: 1px;
+}
+
+.buttons img {
+    height: 31px;
+    width: 100%;
 }
 
 .marquee {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    transform: translateX(10px);
 }
 
 .marquee-track {
@@ -536,7 +565,7 @@ select:active {
 /* VISITS */
 #visits-box {
     user-select: none;
-    width: 220px;
+    width: 100%;
     background: #c0c0c0;
     background-image: url("/assets/images/tiles/cloud.gif");
     background-size: 100%;
@@ -664,7 +693,8 @@ select:active {
     width: 25%;
 }
 
-#funnypics-randomizeBtn, #funnypics-openBtn,
+#funnypics-randomizeBtn,
+#funnypics-openBtn,
 #funnypics-window .field-control a,
 #funnypics-window .field-control select {
     text-wrap: nowrap;

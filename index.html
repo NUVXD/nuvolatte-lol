@@ -18,208 +18,53 @@
 </head>
 
 <body>
-    <div class="banner"></div>
+    <div id="banner"></div>
 
-    <div id="container">
-
-        <!-- Navbar -->
-        <header>
-            <img src="assets/images/gifs/jumpingBunny.gif" alt=""
-                style="position:absolute; top:-67px; width:95px; height:80px; left:50px;">
-            <div class="navbar">
-                <ul>
-                    <li><a data-localize="navbarHome" href="">Home</a></li>
-                    <li><a data-localize="navbarAbout" href="#">About</a></li>
-                    <li><a data-localize="navbarStuff" href="#">Stuff</a></li>
-                    <li><a data-localize="navbarBlog" href="#">Blog</a></li>
-                    <li><a data-localize="navbarAAAH" href="#">AAAH.wav</a></li>
-                </ul>
-            </div>
-        </header>
-
-        <!-- Left Sidebar -->
-        <div class="left">
-
-            <img src="assets/images/gifs/underconstruction2.gif " alt=""
-                style="position:absolute; top:64px; width:65px; height:65px; right:-55px; rotate: -10deg; z-index:2;">
-            <img src="assets/images/gifs/calvin_peeing.gif" alt=""
-                style="position:absolute; top:500px; width:90px; left:-50px; z-index:-1;">
-            <!-- Resources Window -->
-            <div class="window small" id="resources-window">
-                <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/icons/folder.gif" alt="Resources.exe Icon"><data
-                            data-localize="windowTitleRes">Resources.exe</data></div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div data-localize="panelRes" class="panel"
-                    style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
-                    <h1>Browse!</h1>
-                    <p>test<br>test<br>test</p>
-                </div>
-            </div>
-            <!-- Notes Window -->
-            <div class="window small" id="stickynotes-window">
-                <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/icons/notepad.gif"
-                            alt="StickyNotes.exe Icon"><data data-localize="windowTitleNotes">Stickynotes.exe</data>
-                    </div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div data-localize="panelNotes" class="panel"
-                    style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100% 30%;">
-                    <h1>TODO:</h1>
-                    <p>Make left, center, and right contents as flex; remove static coordinates</p>
-                    <p>Everything</p>
-                    <p>Dinner</p>
-                    <p>Sleep</p>
-                </div>
-            </div>
-            <!-- Discussions Window -->
-            <div class="window small" id="discussions-window">
-                <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/icons/w98_world.ico"
-                            alt="Discussions.exe Icon"><data data-localize="windowTitleDiscuss">Discussions.exe</data>
-                    </div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div class="panel">
-                    <iframe title="Discussions chat box" src="https://www5.cbox.ws/box/?boxid=961512&boxtag=joG2Zt"
-                        width="100%" height="340px" allowtransparency="yes" allow="autoplay" frameborder="0"
-                        marginheight="0" marginwidth="0" scrolling="auto"
-                        style="margin: 1px 0px -6px 1px; user-select: none;"></iframe>
-                </div>
-            </div>
-
+    <!-- Navbar -->
+    <header>
+        <img src="assets/images/gifs/jumpingBunny.gif" alt=""
+            style="position:absolute; top:-67px; width:95px; height:80px; left:50px;">
+        <div class="navbar">
+            <ul>
+                <li><a data-localize="navbarHome" href="">Home</a></li>
+                <li><a data-localize="navbarAbout" href="#">About</a></li>
+                <li><a data-localize="navbarStuff" href="#">Stuff</a></li>
+                <li><a data-localize="navbarBlog" href="#">Blog</a></li>
+                <li><a data-localize="navbarAAAH" href="#">AAAH.wav</a></li>
+            </ul>
         </div>
+    </header>
 
-        <!-- Right Sidebar -->
-        <div class="right">
+        <div id="container">
+            <!-- Left Sidebar -->
+            <div id="left">
 
-            <!-- Settings Window -->
-            <div class="window small" id="settings">
-                <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/icons/w98_gears.ico"
-                            alt="Settings.exe Icon"><data data-localize="windowTitleSettings">Settings.exe</data></div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div class="panel">
-                    <div class="panel" style="display: flex; height: 30px;">
-                        <button onclick="setLanguage('italian')" style="width: 50%; background: none;">
-                            <img src="assets/images/gifs/italy-flag.gif" alt="Language Select: Italian"
-                                style="width: 90%; height: 95%; margin-top: 1px;">
-                        </button>
-                        <button onclick="setLanguage('english')" style="width: 50%; background: none;">
-                            <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="Language Select: English"
-                                style="width: 90%; height: 95%; margin-top: 1px;">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- MusicPlayer Window -->
-            <div class="window small" id="music-window">
-                <div class="title-bar">
-                    <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico" alt="Music.exe Icon"><data
-                            data-localize="windowTitleMusic">Music.exe</data></div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div class="panel"
-                    style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
-                    <h1>test</h1>
-                    <p>test<br>test<br>test</p>
-                </div>
-            </div>
-            <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
-                style="position:absolute; top: 67px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
-            <!-- Visits Box -->
-            <div id="visits-box">
-                <p data-localize="visitsCounter">Visits:</p>
-                <p id="visits">&ThickSpace;Loading...</p>
-            </div>
-            <!-- Buttons -->
-            <div class="buttons">
-                <table>
-                    <tr>
-                        <td><a href="https://www.antiai.com/" target="_blank">
-                                <img src="assets/images/buttons/antiai.gif" alt="Anti-AI link button">
-                            </a></td>
-
-                        <td><a href="https://ezgif.com/" target="_blank">
-                                <img src="assets/images/buttons/ezgif.png" alt="Ezgif link button">
-                            </a></td>
-
-                        <td><a href="assets/images/static/furry.jpg" target="_blank">
-                                <img src="assets/images/buttons/furryay.png" alt="FurryYay link button">
-                            </a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://en.wikipedia.org/wiki/GeoCities" target="_blank">
-                                <img src="assets/images/buttons/geocities.gif" alt="Geocities link button">
-                            </a></td>
-
-                        <td><a href="https://www.microsoft.com/" target="_blank">
-                                <img src="assets/images/buttons/microsoft.gif" alt="Microsoft link button">
-                            </a></td>
-
-                        <td><a href="https://apps.microsoft.com/detail/9msmlrh6lzf3" target="_blank">
-                                <img src="assets/images/buttons/notepad.png" alt="Microsoft Notepad link button">
-                            </a></td>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-
-        <!-- Center -->
-        <div class="center">
-
-            <!-- Welcome Window -->
-            <div class="window large" id="welcome-window">
-                <div class="title-bar">
-                    <div class="title-bar-text">
-                        <img src="assets/images/icons/w98_note.ico" alt="Welcome.exe Icon">
-                        <data data-localize="windowTitleWelcome">Welcome.exe</data>
-                    </div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div class="panel" data-localize="panelWelcome"
-                    style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
-                    <h1>&star; Welcome! &star;</h1>
-                    <p>test</p>
-                </div>
-            </div>
-            <!-- Split Center || Changelog & FunnyPics -->
-            <div
-                style="display: flex; justify-content: center; align-items: center; position: relative; width: 100%; padding-left: 10px;">
-                <!-- Changelog Window -->
-                <div class="window medium" id="changelog-window">
+                <img src="assets/images/gifs/underconstruction2.gif " alt=""
+                    style="position:absolute; top:64px; width:65px; height:65px; right:-55px; rotate: -10deg; z-index:2;">
+                <img src="assets/images/gifs/calvin_peeing.gif" alt=""
+                    style="position:absolute; top:500px; width:90px; left:-50px; z-index:-1;">
+                <!-- Resources Window -->
+                <div class="window small" id="resources-window">
                     <div class="title-bar">
-                        <div class="title-bar-text">
-                            <img src="/assets/images/icons/w98_newspaper.ico" alt="Changelog.exe Icon">
-                            <data data-localize="windowTitleChanges">Changelog.exe</data>
+                        <div class="title-bar-text"><img src="assets/images/icons/folder.gif"
+                                alt="Resources.exe Icon"><data data-localize="windowTitleRes">Resources.exe</data></div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div data-localize="panelRes" class="panel"
+                        style="background-image: url(assets/images/tiles/paperclips.gif); background-repeat: repeat; background-size: 30%;">
+                        <h1>Browse!</h1>
+                        <p>test<br>test<br>test</p>
+                    </div>
+                </div>
+                <!-- Notes Window -->
+                <div class="window small" id="stickynotes-window">
+                    <div class="title-bar">
+                        <div class="title-bar-text"><img src="assets/images/icons/notepad.gif"
+                                alt="StickyNotes.exe Icon"><data data-localize="windowTitleNotes">Stickynotes.exe</data>
                         </div>
                         <div class="title-bar-controls">
                             <button class="MinimizeButton"></button>
@@ -227,47 +72,21 @@
                             <button class="CloseButton"></button>
                         </div>
                     </div>
-                    <div class="panel"
-                        style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
-                        <div id="changelog">
-                            <div class="changelog-entry">
-                                <h3>28.02.2026</h3>
-                                <div data-localize="change2802" class="changelog-entry-div">
-                                    <p>Added a unique-visits counter, works on local storage</p>
-                                    <p>Added a random picture generator, works on Reddit API!</p>
-                                    <p>Fixed VirtualPiano audio for mobile, tho this site lowk hellish for mobile rn</p>
-                                </div>
-                            </div>
-                            <div class="changelog-entry">
-                                <h3>27.02.2026</h3>
-                                <div data-localize="change2702" class="changelog-entry-div">
-                                    <p>Added crude localization for italian and modified language buttons (manual
-                                        translations for now)</p>
-                                    <p>Added header banner, made with SAI2!</p>
-                                    <p>Changed the design of the navigation bar, definitely still gonna change tho!</p>
-                                    <p>Revamped some of the icons</p>
-                                    <p>Improved accessibility slightly by adding alt names and titles for visual
-                                        elements</p>
-                                </div>
-                            </div>
-                            <div class="changelog-entry">
-                                <h3>26.02.2026</h3>
-                                <div data-localize="change2602" class="changelog-entry-div">
-                                    <p>Improved layout structure</p>
-                                    <p>Added the changelog</p>
-                                    <p>Added the ability to choose the wave type for the virtual piano</p>
-                                    <p>Added side banners, made them with blender and paint.net :D</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div data-localize="panelNotes" class="panel"
+                        style="background-image: url(assets/images/tiles/notebook.gif); background-repeat: repeat-y; background-size: 100% 30%;">
+                        <h1>TODO:</h1>
+                        <p>Make left, center, and right contents as flex; remove static coordinates</p>
+                        <p>Everything</p>
+                        <p>Dinner</p>
+                        <p>Sleep</p>
                     </div>
                 </div>
-                <!-- FunnyPics Window -->
-                <div class="window medium" id="funnypics-window">
+                <!-- Discussions Window -->
+                <div class="window small" id="discussions-window">
                     <div class="title-bar">
-                        <div class="title-bar-text">
-                            <img src="assets/images/icons/clown.gif" alt="FunnyPics.exe Icon">
-                            <data data-localize="windowTitleFunny">FunnyPics.exe</data>
+                        <div class="title-bar-text"><img src="assets/images/icons/w98_world.ico"
+                                alt="Discussions.exe Icon"><data
+                                data-localize="windowTitleDiscuss">Discussions.exe</data>
                         </div>
                         <div class="title-bar-controls">
                             <button class="MinimizeButton"></button>
@@ -276,133 +95,312 @@
                         </div>
                     </div>
                     <div class="panel">
-                        <img id="funnypics-image">
+                        <iframe title="Discussions chat box" src="https://www5.cbox.ws/box/?boxid=961512&boxtag=joG2Zt"
+                            width="100%" height="340px" allowtransparency="yes" allow="autoplay" frameborder="0"
+                            marginheight="0" marginwidth="0" scrolling="auto"
+                            style="margin: 1px 0px -6px 1px; user-select: none;"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Center -->
+            <div id="center">
+
+                <!-- Welcome Window -->
+                <div class="window large" id="welcome-window">
+                    <div class="title-bar">
+                        <div class="title-bar-text">
+                            <img src="assets/images/icons/w98_note.ico" alt="Welcome.exe Icon">
+                            <data data-localize="windowTitleWelcome">Welcome.exe</data>
+                        </div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div class="panel" data-localize="panelWelcome"
+                        style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                        <h1>&star; Welcome! &star;</h1>
+                        <p>test</p>
+                    </div>
+                </div>
+                <!-- Split Center || Changelog & FunnyPics -->
+                <div class="splitDiv">
+                    <!-- Changelog Window -->
+                    <div class="window medium" id="changelog-window">
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                <img src="/assets/images/icons/w98_newspaper.ico" alt="Changelog.exe Icon">
+                                <data data-localize="windowTitleChanges">Changelog.exe</data>
+                            </div>
+                            <div class="title-bar-controls">
+                                <button class="MinimizeButton"></button>
+                                <button class="MaximizeButton"></button>
+                                <button class="CloseButton"></button>
+                            </div>
+                        </div>
+                        <div class="panel"
+                            style="background-image: url(/assets/images/tiles/stars1.gif); background-repeat: repeat;">
+                            <div id="changelog">
+                                <div class="changelog-entry">
+                                    <h3>28.02.2026</h3>
+                                    <div data-localize="change2802" class="changelog-entry-div">
+                                        <p>Added a unique-visits counter, works on local storage</p>
+                                        <p>Added a random picture generator, works on Reddit API!</p>
+                                        <p>Fixed VirtualPiano audio for mobile, tho this site lowk hellish for mobile rn
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="changelog-entry">
+                                    <h3>27.02.2026</h3>
+                                    <div data-localize="change2702" class="changelog-entry-div">
+                                        <p>Added crude localization for italian and modified language buttons (manual
+                                            translations for now)</p>
+                                        <p>Added header banner, made with SAI2!</p>
+                                        <p>Changed the design of the navigation bar, definitely still gonna change tho!
+                                        </p>
+                                        <p>Revamped some of the icons</p>
+                                        <p>Improved accessibility slightly by adding alt names and titles for visual
+                                            elements</p>
+                                    </div>
+                                </div>
+                                <div class="changelog-entry">
+                                    <h3>26.02.2026</h3>
+                                    <div data-localize="change2602" class="changelog-entry-div">
+                                        <p>Improved layout structure</p>
+                                        <p>Added the changelog</p>
+                                        <p>Added the ability to choose the wave type for the virtual piano</p>
+                                        <p>Added side banners, made them with blender and paint.net :D</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FunnyPics Window -->
+                    <div class="window medium" id="funnypics-window">
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                <img src="assets/images/icons/clown.gif" alt="FunnyPics.exe Icon">
+                                <data data-localize="windowTitleFunny">FunnyPics.exe</data>
+                            </div>
+                            <div class="title-bar-controls">
+                                <button class="MinimizeButton"></button>
+                                <button class="MaximizeButton"></button>
+                                <button class="CloseButton"></button>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <img id="funnypics-image">
+                        </div>
+                        <div class="field-control">
+                            <select title="Select the picture category" id="funnypicsCategory">
+                                <option data-localize="funnypics-category-memes" value="memes" selected>Memes</option>
+                                <option data-localize="funnypics-category-cats" value="cats">Cats</option>
+                            </select>
+                            <button data-localize="funnypicsRandomize" title="Randomize funny picture"
+                                id="funnypics-randomizeBtn">Randomize!</button>
+                            <a href="404.html" target="_blank" id="funnypics-openLink">
+                                <button data-localize="funnypicsOpen" title="Open the funny picture"
+                                    id="funnypics-openBtn">Open</button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Blinkies -->
+                <div class="blinkies">
+                    <img src="assets/images/blinkies/Blinkie5.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie2.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie4.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie1.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie6.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie11.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie8.gif" alt="">
+                    <img src="assets/images/blinkies/Blinkie9.gif" alt="">
+                </div>
+                <!-- Virtual Piano Window -->
+                <div class="window large" id="virtualpiano-window">
+                    <div class="title-bar">
+                        <div class="title-bar-text">
+                            <img src="assets/images/icons/w98_midi.ico" alt="VirtualPiano.exe Icon">
+                            <data data-localize="windowTitleVP">VirtualPiano.exe</data>
+                        </div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div class="panel"
+                        style="background-image: url(/assets/images/tiles/pattern1.gif); background-repeat: repeat;">
+                        <div id="meowsic">
+                            <img id="meowsic-img" src="/virtual-piano/assets/static/meowsic.gif">
+                            <iframe title="VirtualPiano" id="piano" src="virtual-piano/piano.html" height="100%"
+                                width="100%" scrolling="no" frameborder="no"></iframe>
+                        </div>
                     </div>
                     <div class="field-control">
-                        <select title="Select the picture category" id="funnypicsCategory">
-                            <option data-localize="funnypics-category-memes" value="memes" selected>Memes</option>
-                            <option data-localize="funnypics-category-cats" value="cats">Cats</option>
+                        <!-- Gain Control -->
+                        <p>Volume:</p>
+                        <p data-localize="vpVolLow">Low</p>
+                        <input id="piano-volume-slider" type="range" min="0" max="1" step="0.01" value="0.3"
+                            title="Virtual piano volume slider">
+                        <p data-localize="vpVolHigh">High</p>
+                        <!-- Transposer Control -->
+                        <p data-localize="vpTranspose" style="padding-left: 10px;">Transpose:</p>
+                        <select id="piano-transposer" title="Virtual Piano - select transpose offset">
+                            <option>+5</option>
+                            <option>+4</option>
+                            <option>+3</option>
+                            <option>+2</option>
+                            <option>+1</option>
+                            <option selected>0</option>
+                            <option>-1</option>
+                            <option>-2</option>
+                            <option>-3</option>
+                            <option>-4</option>
+                            <option>-5</option>
                         </select>
-                        <button data-localize="funnypicsRandomize" title="Randomize funny picture"
-                            id="funnypics-randomizeBtn">Randomize!</button>
-                        <a href="404.html" target="_blank" id="funnypics-openLink">
-                            <button data-localize="funnypicsOpen" title="Open the funny picture"
-                                id="funnypics-openBtn">Open</button>
+                        <!-- Wave Type Control -->
+                        <p data-localize="vpWavetype" style="padding-left: 10px;">Wave Type:</p>
+                        <select id="piano-wavetype" title="Virtual Piano - select wave type">
+                            <option data-localize="vpWavetype1" value="triangle" selected>Triangle</option>
+                            <option data-localize="vpWavetype2" value="sine">Sine</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Stamps Marquee -->
+                <div class="marquee">
+                    <div class="marquee-track">
+                        <img src="assets/images/stamps/underconstruction3.gif" alt="">
+                        <img src="assets/images/stamps/smilingfriends.gif" alt="">
+                        <img src="assets/images/stamps/drhouse.gif" alt="">
+                        <img src="assets/images/stamps/rainbowdash.gif" alt="">
+                        <img src="assets/images/stamps/nyan.gif" alt="">
+                        <img src="assets/images/stamps/pcuser.gif" alt="">
+                        <img src="assets/images/stamps/smileyfacestamp.gif" alt="">
+                        <img src="assets/images/stamps/somanyideas.gif" alt="">
+                        <img src="assets/images/stamps/fword.gif" alt="">
+                        <img src="assets/images/stamps/queen.gif" alt="">
+                        <img src="assets/images/stamps/thebeatles.gif" alt="">
+                        <img src="assets/images/stamps/nirvana.gif" alt="">
+                        <img src="assets/images/stamps/greggstamp.gif" alt="">
+                        <img src="assets/images/stamps/nitwstamp.gif" alt="">
+                        <img src="assets/images/stamps/maestamp.gif" alt="">
+                        <!-- duplicate set for seamless loop -->
+                        <img src="assets/images/stamps/underconstruction3.gif" alt="">
+                        <img src="assets/images/stamps/smilingfriends.gif" alt="">
+                        <img src="assets/images/stamps/drhouse.gif" alt="">
+                        <img src="assets/images/stamps/rainbowdash.gif" alt="">
+                        <img src="assets/images/stamps/nyan.gif" alt="">
+                        <img src="assets/images/stamps/pcuser.gif" alt="">
+                        <img src="assets/images/stamps/smileyfacestamp.gif" alt="">
+                        <img src="assets/images/stamps/somanyideas.gif" alt="">
+                        <img src="assets/images/stamps/fword.gif" alt="">
+                        <img src="assets/images/stamps/queen.gif" alt="">
+                        <img src="assets/images/stamps/thebeatles.gif" alt="">
+                        <img src="assets/images/stamps/nirvana.gif" alt="">
+                        <img src="assets/images/stamps/greggstamp.gif" alt="">
+                        <img src="assets/images/stamps/nitwstamp.gif" alt="">
+                        <img src="assets/images/stamps/maestamp.gif" alt="">
+                    </div>
+                </div>
+                <!-- Foot -->
+                <div id="foot">
+                    <p data-localize="foot">
+                        Scribbled by Nuvola, <br>with hate &hearts;.
+                        <br>
+                        <br>
+                        <img src="assets/images/gifs/www.gif" alt="">
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Right Sidebar -->
+            <div id="right">
+
+                <!-- Settings Window -->
+                <div class="window small" id="settings">
+                    <div class="title-bar">
+                        <div class="title-bar-text"><img src="assets/images/icons/w98_gears.ico"
+                                alt="Settings.exe Icon"><data data-localize="windowTitleSettings">Settings.exe</data>
+                        </div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel" style="display: flex; height: 30px;">
+                            <button onclick="setLanguage('italian')" style="width: 50%; background: none;">
+                                <img src="assets/images/gifs/italy-flag.gif" alt="Language Select: Italian"
+                                    style="width: 90%; height: 95%; margin-top: 1px;">
+                            </button>
+                            <button onclick="setLanguage('english')" style="width: 50%; background: none;">
+                                <img src="assets/images/gifs/unitedkingdom-flag.gif" alt="Language Select: English"
+                                    style="width: 90%; height: 95%; margin-top: 1px;">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- MusicPlayer Window -->
+                <div class="window small" id="music-window">
+                    <div class="title-bar">
+                        <div class="title-bar-text"><img src="assets/images/icons/w98_cd.ico" alt="Music.exe Icon"><data
+                                data-localize="windowTitleMusic">Music.exe</data></div>
+                        <div class="title-bar-controls">
+                            <button class="MinimizeButton"></button>
+                            <button class="MaximizeButton"></button>
+                            <button class="CloseButton"></button>
+                        </div>
+                    </div>
+                    <div class="panel"
+                        style="background-image: url(/assets/images/tiles/pattern2.gif); background-size: 30%;">
+                        <h1>test</h1>
+                        <p>test<br>test<br>test</p>
+                    </div>
+                </div>
+                <img src="assets/images/gifs/deltarune-tenna.gif" alt=""
+                    style="position:absolute; top: 67px; height:120px; right:-67px; z-index:2;"> <!-- SIX SEVEEEN -->
+                <!-- Visits Box -->
+                <div id="visits-box">
+                    <p data-localize="visitsCounter">Visits:</p>
+                    <p id="visits">&ThickSpace;Loading...</p>
+                </div>
+                <!-- Buttons -->
+                <div id="buttonsWrap">
+                    <div class="buttons">
+                        <a href="https://www.antiai.com/" target="_blank">
+                            <img src="assets/images/buttons/antiai.gif" alt="Anti-AI link button">
+                        </a>
+                        <a href="https://ezgif.com/" target="_blank">
+                            <img src="assets/images/buttons/ezgif.png" alt="Ezgif link button">
+                        </a>
+                    </div>
+                    <div class="buttons">
+                        <a href="assets/images/static/furry.jpg" target="_blank">
+                            <img src="assets/images/buttons/furryay.png" alt="FurryYay link button">
+                        </a>
+                        <a href="https://en.wikipedia.org/wiki/GeoCities" target="_blank">
+                            <img src="assets/images/buttons/geocities.gif" alt="Geocities link button">
+                        </a>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://www.microsoft.com/" target="_blank">
+                            <img src="assets/images/buttons/microsoft.gif" alt="Microsoft link button">
+                        </a>
+                        <a href="https://apps.microsoft.com/detail/9msmlrh6lzf3" target="_blank">
+                            <img src="assets/images/buttons/notepad.png" alt="Microsoft Notepad link button">
                         </a>
                     </div>
                 </div>
-
-            </div>
-            <!-- Blinkies -->
-            <div class="blinkies">
-                <img src="assets/images/blinkies/Blinkie5.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie2.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie4.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie1.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie6.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie11.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie8.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie9.gif" alt="">
-            </div>
-            <!-- Virtual Piano Window -->
-            <div class="window large" id="virtualpiano-window">
-                <div class="title-bar">
-                    <div class="title-bar-text">
-                        <img src="assets/images/icons/w98_midi.ico" alt="VirtualPiano.exe Icon">
-                        <data data-localize="windowTitleVP">VirtualPiano.exe</data>
-                    </div>
-                    <div class="title-bar-controls">
-                        <button class="MinimizeButton"></button>
-                        <button class="MaximizeButton"></button>
-                        <button class="CloseButton"></button>
-                    </div>
-                </div>
-                <div class="panel"
-                    style="background-image: url(/assets/images/tiles/pattern1.gif); background-repeat: repeat;">
-                    <div id="meowsic">
-                        <img id="meowsic-img" src="/virtual-piano/assets/static/meowsic.gif">
-                        <iframe title="VirtualPiano" id="piano" src="virtual-piano/piano.html"
-                            height="100%" width="100%" scrolling="no" frameborder="no"></iframe>
-                    </div>
-                </div>
-                <div class="field-control">
-                    <!-- Gain Control -->
-                    <p>Volume:</p>
-                    <p data-localize="vpVolLow">Low</p>
-                    <input id="piano-volume-slider" type="range" min="0" max="1" step="0.01" value="0.3"
-                        title="Virtual piano volume slider">
-                    <p data-localize="vpVolHigh">High</p>
-                    <!-- Transposer Control -->
-                    <p data-localize="vpTranspose" style="padding-left: 10px;">Transpose:</p>
-                    <select id="piano-transposer" title="Virtual Piano - select transpose offset">
-                        <option>+5</option>
-                        <option>+4</option>
-                        <option>+3</option>
-                        <option>+2</option>
-                        <option>+1</option>
-                        <option selected>0</option>
-                        <option>-1</option>
-                        <option>-2</option>
-                        <option>-3</option>
-                        <option>-4</option>
-                        <option>-5</option>
-                    </select>
-                    <!-- Wave Type Control -->
-                    <p data-localize="vpWavetype" style="padding-left: 10px;">Wave Type:</p>
-                    <select id="piano-wavetype" title="Virtual Piano - select wave type">
-                        <option data-localize="vpWavetype1" value="triangle" selected>Triangle</option>
-                        <option data-localize="vpWavetype2" value="sine">Sine</option>
-                    </select>
-                </div>
-            </div>
-            <!-- Stamps Marquee -->
-            <div class="marquee">
-                <div class="marquee-track">
-                    <img src="assets/images/stamps/underconstruction3.gif" alt="">
-                    <img src="assets/images/stamps/smilingfriends.gif" alt="">
-                    <img src="assets/images/stamps/drhouse.gif" alt="">
-                    <img src="assets/images/stamps/rainbowdash.gif" alt="">
-                    <img src="assets/images/stamps/nyan.gif" alt="">
-                    <img src="assets/images/stamps/pcuser.gif" alt="">
-                    <img src="assets/images/stamps/smileyfacestamp.gif" alt="">
-                    <img src="assets/images/stamps/somanyideas.gif" alt="">
-                    <img src="assets/images/stamps/fword.gif" alt="">
-                    <img src="assets/images/stamps/queen.gif" alt="">
-                    <img src="assets/images/stamps/thebeatles.gif" alt="">
-                    <img src="assets/images/stamps/nirvana.gif" alt="">
-                    <img src="assets/images/stamps/greggstamp.gif" alt="">
-                    <img src="assets/images/stamps/nitwstamp.gif" alt="">
-                    <img src="assets/images/stamps/maestamp.gif" alt="">
-                    <!-- duplicate set for seamless loop -->
-                    <img src="assets/images/stamps/underconstruction3.gif" alt="">
-                    <img src="assets/images/stamps/smilingfriends.gif" alt="">
-                    <img src="assets/images/stamps/drhouse.gif" alt="">
-                    <img src="assets/images/stamps/rainbowdash.gif" alt="">
-                    <img src="assets/images/stamps/nyan.gif" alt="">
-                    <img src="assets/images/stamps/pcuser.gif" alt="">
-                    <img src="assets/images/stamps/smileyfacestamp.gif" alt="">
-                    <img src="assets/images/stamps/somanyideas.gif" alt="">
-                    <img src="assets/images/stamps/fword.gif" alt="">
-                    <img src="assets/images/stamps/queen.gif" alt="">
-                    <img src="assets/images/stamps/thebeatles.gif" alt="">
-                    <img src="assets/images/stamps/nirvana.gif" alt="">
-                    <img src="assets/images/stamps/greggstamp.gif" alt="">
-                    <img src="assets/images/stamps/nitwstamp.gif" alt="">
-                    <img src="assets/images/stamps/maestamp.gif" alt="">
-                </div>
-            </div>
-            <!-- Foot -->
-            <div id="foot">
-                <p data-localize="foot">
-                    Scribbled by Nuvola, <br>with hate &hearts;.
-                    <br>
-                    <br>
-                    <img src="assets/images/gifs/www.gif" alt="">
-                </p>
             </div>
 
         </div>
-    </div>
 </body>
 
 </html>

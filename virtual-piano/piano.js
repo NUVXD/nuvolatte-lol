@@ -5,7 +5,7 @@
 // ordered html key elements & keyboard keys maps
 var whiteKeyMap = '1234567890qwertyuiopasdfghjklzxcvbnm'.split('');
 var blackKeyMap = '!@$%^*(QWERTYIOPSDGHJLZCV'.split('');
-let transposeSemitones = 0; // -3 to 3
+let transposeSemitones = 0;
 
 function paeCodeForKeyAtIndex(keyIndex) {
     if (keyIndex < 0) return "";

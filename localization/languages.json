@@ -1,13 +1,11 @@
 {
-"italian": {
+    "italian": {
         "title": "L'Angolo Di Nuvolatte",
-
         "navbarHome": "Casa",
         "navbarAbout": "In Merito",
         "navbarStuff": "Cose",
         "navbarBlog": "Blog",
         "navbarAAAH": "AAAH.wav",
-
         "windowTitleRes": "Risorse.exe",
         "windowTitleNotes": "Promemoria.exe",
         "windowTitleDiscuss": "Discussioni.exe",
@@ -18,21 +16,23 @@
         "windowTitleSettings": "Impostazioni.exe",
         "windowTitleMusic": "Musica.exe",
         "windowTitleBible": "VersiBiblici.exe",
-
         "panelResources": [
             "Naviga!"
         ],
         "panelWelcome": [
             "&star; Saluti! &star;",
-            "test"
+            "Yo.",
+            "Ambiguo sito inspirato dalle vecchie pagine su #GEOCITIES,",
+            "Un po' un progetto artistico personale, e un po' un posto dove scaricare qualche progetto e pensiero. Nient'altro, in realtà.",
+            "#TOTALTRASHMAMMAL"
         ],
         "panelNotes": [
             "DA FA':",
+            "pulsante [VirtualMIDI] -> pagina : convertitore da MIDI a PianoVirtuale, convertitore da PianoVirtuale a MIDI (prima imparare come usare webassembly per portarlo lol)",
             "Tutto",
             "Cena",
             "Dormi"
         ],
-        
         "change2602": [
             "Migliorata la struttura del layout",
             "Aggiunto il changelog xD",
@@ -56,21 +56,22 @@
             "Aggiunta la fottutissima bibbia oh yeaah!",
             "Aggiunto un pannello basico per Risorse.exe"
         ],
-
+        "change1403": [
+            "Aggiunto del (probabilmente temporaneo) testo in Accoglienza.exe che altrimenti mi rodeva",
+            "Ampliato l'intervallo delle trasposizioni possibili per il piano virtuale",
+            "Mi prendo una piccola pausa per concentrarmi su altre cose, come ho già fatto le scorse 2 settimane lol :P"
+        ],
         "visitsCounter": "Visite:",
-        
         "funnypicsRandomize": "Randomizza!",
         "funnypicsOpen": "Apri",
         "funnypics-category-memes": "Meme",
         "funnypics-category-cats": "Gatti",
-
-        "vpVolLow": "Basso",    
+        "vpVolLow": "Basso",
         "vpVolHigh": "Alto",
         "vpTranspose": "Trasporre:",
         "vpWavetype": "Tipo D'Onda:",
         "vpWavetype1": "Triangolo",
         "vpWavetype2": "Seno",
-
         "footText1": "Scarabocchiato da Nuvola,",
         "footText2": "con odio &hearts;."
     }

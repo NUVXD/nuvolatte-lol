@@ -41,7 +41,7 @@
         fetch(url).then(res => res.json()).then(data => {
             document.getElementById("visits").textContent = "\u205F" + data.count;
             if (!counted) localStorage.setItem("counted", "true");
-        }); 
+        });
     </script>
 </head>
 
@@ -98,6 +98,9 @@
                 </div>
                 <div data-localize="panelNotes" class="panel">
                     <h1>TODO:</h1>
+                    <p>[VirtualMIDI] button -> page : MIDI to VirtualPiano converter, VirtualPiano to MIDI converter
+                        (first learn how to use webassembly to port it lol)</p>
+                    <p>Simple oscillator panel next to VirtualPiano</p>
                     <p>Everything</p>
                     <p>Dinner</p>
                     <p>Sleep</p>
@@ -142,7 +145,11 @@
                 </div>
                 <div class="panel" data-localize="panelWelcome">
                     <h1>&star; Welcome! &star;</h1>
-                    <p>test</p>
+                    <p>Yo.</p>
+                    <p>Silly website inspired by old #GEOCITIES pages,</p>
+                    <p>A little bit of a personal arts & crafts, and a little bit of a place to dump some projects and
+                        thoughts. Nothing else to it really.</p>
+                    <p>#TOTALTRASHMAMMAL</p>
                 </div>
             </div>
             <!-- Split Center || Changelog & FunnyPics -->
@@ -162,6 +169,15 @@
                     </div>
                     <div class="panel">
                         <div id="changelog">
+                            <div class="changelog-entry">
+                                <h3>14.03.2026</h3>
+                                <div data-localize="change1403" class="changelog-entry-div">
+                                    <p>Added some (probably) temporary text in welcome.exe cuz it was lame as hell</p>
+                                    <p>Added more transposition options for the virtual piano</p>
+                                    <p>Taking a little hiatus to focus on other things, like I've already done the past
+                                        two weeks lol :P</p>
+                                </div>
+                            </div>
                             <div class="changelog-entry">
                                 <h3>02.03.2026</h3>
                                 <div data-localize="change0203" class="changelog-entry-div">
@@ -237,15 +253,21 @@
             </div>
             <!-- Blinkies -->
             <div class="blinkies">
-                <img src="assets/images/blinkies/Blinkie5.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie2.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie4.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie1.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie6.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie11.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie8.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie10.gif" alt="">
-                <img src="assets/images/blinkies/Blinkie9.gif" alt="">
+                <img src="assets/images/blinkies/Blinkie5.gif" alt=""> <!-- site in progress -->
+                <img src="assets/images/blinkies/Blinkie2.gif" alt=""> <!-- brain dead -->
+                <img src="assets/images/blinkies/Blinkie13.gif" alt=""> <!-- retarded -->
+                <img src="assets/images/blinkies/Blinkie1.gif" alt=""> <!-- sometimes i pee when i laugh -->
+
+                <img src="assets/images/blinkies/Blinkie9.gif" alt=""> <!-- easily amused -->
+                <img src="assets/images/blinkies/Blinkie6.gif" alt=""> <!-- blinkies rule -->
+                <img src="assets/images/blinkies/Blinkie11.gif" alt=""> <!-- night in the woods -->
+                <img src="assets/images/blinkies/Blinkie4.gif" alt=""> <!-- smiling friends -->
+
+                <img src="assets/images/blinkies/Blinkie8.gif" alt=""> <!-- mad cows go quack -->
+                <img src="assets/images/blinkies/Blinkie12.gif" alt=""> <!-- die! bugs! die! -->
+                <img src="assets/images/blinkies/Blinkie10.gif" alt=""> <!-- need help with that? -->
+                <img src="assets/images/blinkies/Blinkie14.gif" alt=""> <!-- wikipedia -->
+
             </div>
             <!-- Virtual Piano Window -->
             <div class="window large" id="virtualpiano-window">
@@ -262,7 +284,7 @@
                 </div>
                 <div class="panel">
                     <div id="meowsic">
-                        <img id="meowsic-img" src="/virtual-piano/assets/static/meowsic.gif">
+                        <img id="meowsic-img" src="/virtual-piano/assets/meowsic.gif">
                         <iframe title="VirtualPiano" id="piano" src="virtual-piano/piano.html" height="100%"
                             width="100%" scrolling="no" frameborder="no"></iframe>
                     </div>
@@ -277,6 +299,13 @@
                     <!-- Transposer Control -->
                     <p data-localize="vpTranspose" style="padding-left: 10px;">Transpose:</p>
                     <select id="piano-transposer" title="Virtual Piano - select transpose offset">
+                        <option>+12</option>
+                        <option>+11</option>
+                        <option>+10</option>
+                        <option>+9</option>
+                        <option>+8</option>
+                        <option>+7</option>
+                        <option>+6</option>
                         <option>+5</option>
                         <option>+4</option>
                         <option>+3</option>
@@ -288,6 +317,13 @@
                         <option>-3</option>
                         <option>-4</option>
                         <option>-5</option>
+                        <option>-6</option>
+                        <option>-7</option>
+                        <option>-8</option>
+                        <option>-9</option>
+                        <option>-10</option>
+                        <option>-11</option>
+                        <option>-12</option>
                     </select>
                     <!-- Wave Type Control -->
                     <p data-localize="vpWavetype" style="padding-left: 10px;">Wave Type:</p>

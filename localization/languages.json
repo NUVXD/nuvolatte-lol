@@ -29,6 +29,7 @@
         "panelNotes": [
             "DA FA':",
             "pulsante [VirtualMIDI] -> pagina : convertitore da MIDI a PianoVirtuale, convertitore da PianoVirtuale a MIDI (prima imparare come usare webassembly per portarlo lol)",
+            "piccolo pannello con un oscillatore vicino al piano virtuale",
             "Tutto",
             "Cena",
             "Dormi"
